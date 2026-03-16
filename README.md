@@ -1,23 +1,28 @@
-# Exodraft — Strategic Analysis & Innovation Lab
+# Exodraft — Strategic Analysis & Innovation Repo
 
-> Prepared for Henrik Lambert's advisory engagement with Exodraft ApS
+**Built for Henrik Lambert's advisory meeting with Exodraft, March 2026.**
 
-Exodraft makes chimney draft fans — electric fans mounted on chimney tops that mechanically create suction when natural draft is insufficient.
+Exodraft A/S (founded 1957 as Exhausto, HQ Langeskov, Funen) is a **global market leader** in energy technology — chimney fans, particle filters, and heat recovery systems. Part of the Exodraft Group alongside Exodraft Energy and Exodraft Climate.
+
+---
 
 ## Contents
 
 | File | Description |
 |------|-------------|
-| [COMPANY.md](COMPANY.md) | Company profile, product, positioning |
-| [MARKET.md](MARKET.md) | Market size, segments, TAM/SAM/SOM |
-| [COMPETITORS.md](COMPETITORS.md) | Competitive landscape analysis |
-| [SWOT.md](SWOT.md) | SWOT analysis |
-| [TRENDS.md](TRENDS.md) | Macro trends and regulatory tailwinds |
-| [IDEAS-50.md](IDEAS-50.md) | 50 innovation ideas across all categories |
-| [research/CLAUDE-ANALYSIS.md](research/CLAUDE-ANALYSIS.md) | Deep research — Claude perspective |
-| [research/GPT-ANALYSIS.md](research/GPT-ANALYSIS.md) | Deep research — ChatGPT perspective |
-| [research/SYNTHESIS.md](research/SYNTHESIS.md) | Synthesis of both perspectives |
-| [PITCH-ANGLES.md](PITCH-ANGLES.md) | Top 5 talking points for Henrik's meeting |
+| `COMPANY.md` | Company profile, history, products, market position |
+| `MARKET.md` | Market sizing, segments, geographies, trends |
+| `COMPETITORS.md` | Competitive landscape |
+| `SWOT.md` | Strengths, weaknesses, opportunities, threats |
+| `TRENDS.md` | Macro trends relevant to Exodraft |
+| `IDEAS-50.md` | 50 strategic and product ideas |
+| `PITCH-ANGLES.md` | Top talking points for Henrik's meeting |
+| `INSTALLATION-PAIN.md` | Deep dive on the #1 customer friction |
+| `AI-OPPORTUNITY.md` | Where agentic AI fits in Exodraft's product + business |
+| `research/` | Deep research documents |
+| `products/` | Full product white papers (3 new product concepts) |
+| `presentation.html` | 18-slide presentation for Henrik's meeting |
 
 ---
-*Analysis by Kira ⚡ · March 2026*
+
+*Research by Kira ⚡ · March 2026*
