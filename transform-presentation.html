@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fra traditionel til AI-enabled — Exodraft × Lambert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0e1a;--accent:#f59e0b;--accent2:#fbbf24;--accent-dim:rgba(245,158,11,0.12);--accent-border:rgba(245,158,11,0.28);--white:#ffffff;--text:#e2e8f0;--muted:#94a3b8;--card:rgba(255,255,255,0.04);--card-border:rgba(255,255,255,0.08);--green:#22c55e;--red:#ef4444;--blue:#3b82f6}
+html,body{height:100%;overflow:hidden;font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 0.4s ease;z-index:100;box-shadow:0 0 12px rgba(245,158,11,0.5)}
+#counter{position:fixed;bottom:24px;right:32px;font-size:13px;font-weight:500;color:var(--muted);letter-spacing:0.05em;z-index:100}
+#nav-hints{position:fixed;bottom:24px;left:32px;font-size:12px;color:rgba(148,163,184,0.4);z-index:100;display:flex;gap:14px}
+#nav-hints kbd{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:2px 6px;font-size:11px}
+.nav-arrow{position:fixed;top:50%;transform:translateY(-50%);z-index:100;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--muted);width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;transition:all 0.2s;user-select:none}
+.nav-arrow:hover{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+#prev{left:16px}#next{right:16px}
+#deck{width:100%;height:100%;position:relative}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 80px;opacity:0;pointer-events:none;transition:opacity 0.5s ease;text-align:center}
+.slide.active{opacity:1;pointer-events:all}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.slide-title{font-size:clamp(28px,4vw,52px);font-weight:800;line-height:1.1;color:var(--white);margin-bottom:24px}
+.slide-title .accent{color:var(--accent)}
+.slide-sub{font-size:clamp(14px,1.6vw,20px);color:var(--muted);line-height:1.6;max-width:720px}
+.card-grid{display:grid;gap:20px;width:100%;max-width:960px;margin-top:32px}
+.card-grid.cols-2{grid-template-columns:1fr 1fr}
+.card-grid.cols-3{grid-template-columns:1fr 1fr 1fr}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:28px;text-align:left}
+.card.accent-border{border-color:var(--accent-border)}
+.card-num{font-size:32px;font-weight:900;color:var(--accent);margin-bottom:8px}
+.card-title{font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px}
+.card-body{font-size:14px;color:var(--muted);line-height:1.6}
+.big-quote{font-size:clamp(18px,2.5vw,30px);font-weight:600;color:var(--white);line-height:1.5;max-width:820px;font-style:italic;border-left:3px solid var(--accent);padding-left:28px;text-align:left;margin:24px 0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;width:100%;max-width:960px;text-align:left;margin-top:24px}
+.col-label{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.col-body{font-size:15px;color:var(--muted);line-height:1.8}
+.col-body strong{color:var(--white)}
+.phase-row{display:flex;gap:0;width:100%;max-width:900px;margin-top:32px}
+.phase{flex:1;padding:24px 20px;text-align:center;border:1px solid var(--card-border);background:var(--card)}
+.phase:first-child{border-radius:12px 0 0 12px}
+.phase:last-child{border-radius:0 12px 12px 0}
+.phase.active-phase{background:var(--accent-dim);border-color:var(--accent-border)}
+.phase-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.phase.active-phase .phase-label{color:var(--accent)}
+.phase-title{font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px}
+.phase-body{font-size:13px;color:var(--muted);line-height:1.5}
+.stat-row{display:flex;gap:32px;margin-top:32px;flex-wrap:wrap;justify-content:center}
+.stat{text-align:center}
+.stat-num{font-size:clamp(36px,5vw,64px);font-weight:900;color:var(--accent);line-height:1}
+.stat-label{font-size:13px;color:var(--muted);margin-top:8px}
+.tag{display:inline-block;background:var(--accent-dim);border:1px solid var(--accent-border);color:var(--accent);border-radius:6px;padding:4px 12px;font-size:12px;font-weight:600;letter-spacing:0.06em;margin:4px}
+.divider{width:60px;height:3px;background:var(--accent);margin:20px auto;border-radius:2px}
+.source{font-size:11px;color:rgba(148,163,184,0.5);margin-top:20px}
+/* Gate */
+#gate{position:fixed;inset:0;background:#0a0e1a;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+#gate-title{font-size:28px;font-weight:700;color:var(--white);letter-spacing:0.04em}
+#gate-sub{font-size:13px;color:#64748b;letter-spacing:0.1em;text-transform:uppercase}
+#gate-input{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:8px;color:var(--white);font-size:22px;letter-spacing:0.2em;text-align:center;padding:14px 24px;outline:none;width:220px;font-family:'Inter',sans-serif}
+#gate-input:focus{border-color:var(--accent)}
+#gate-btn{background:var(--accent);color:#000;border:none;border-radius:8px;padding:12px 36px;font-size:15px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif}
+#gate-err{color:var(--red);font-size:13px;min-height:18px;font-family:'Inter',sans-serif}
+@media(max-width:768px){.slide{padding:40px 24px}.card-grid.cols-2,.card-grid.cols-3{grid-template-columns:1fr}.two-col{grid-template-columns:1fr}.phase-row{flex-direction:column}.phase:first-child{border-radius:12px 12px 0 0}.phase:last-child{border-radius:0 0 12px 12px}}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div id="gate-title">Exodraft × Lambert</div>
+  <div id="gate-sub">Enter access code</div>
+  <input id="gate-input" type="password" placeholder="••••••••" autocomplete="off" autofocus onkeydown="if(event.key==='Enter')checkGate()">
+  <button id="gate-btn" onclick="checkGate()">Continue →</button>
+  <div id="gate-err"></div>
+</div>
+
+<div id="progress"></div>
+<button class="nav-arrow" id="prev" onclick="goTo(current-1)">&#8592;</button>
+<button class="nav-arrow" id="next" onclick="goTo(current+1)">&#8594;</button>
+<div id="counter">1 / 15</div>
+<div id="nav-hints"><kbd>←</kbd><kbd>→</kbd><kbd>Space</kbd></div>
+
+<div id="deck">
+
+<!-- SLIDE 1: TITLE -->
+<div class="slide active">
+  <div class="eyebrow">Exodraft × Lambert — Marts 2026</div>
+  <div class="slide-title">Fra traditionel til<br><span class="accent">AI-enabled</span></div>
+  <div class="divider"></div>
+  <div class="slide-sub">Hvordan Exodraft bygger til fremtiden — ikke mod den</div>
+  <div style="margin-top:40px;font-size:13px;color:var(--muted)">Henrik Lambert &nbsp;·&nbsp; Innovation &amp; AI Strategy</div>
+</div>
+
+<!-- SLIDE 2: DEN BRÆNDENDE PLATFORM -->
+<div class="slide">
+  <div class="eyebrow">Virkeligheden</div>
+  <div class="slide-title">Tre fakta.<br>Én konsekvens.</div>
+  <div class="card-grid cols-3" style="margin-top:36px;max-width:1000px">
+    <div class="card accent-border">
+      <div class="card-num">01</div>
+      <div class="card-title">Gabet lukker sig</div>
+      <div class="card-body">AI's faktiske kapacitet er stadig kun en brøkdel af det teoretisk mulige — men gabet indsnævres hver måned. Det er ikke et spørgsmål om <em>om</em>. Det er et spørgsmål om <em>hvornår</em>.</div>
+    </div>
+    <div class="card accent-border">
+      <div class="card-num">02</div>
+      <div class="card-title">Tidlig tilpasning vinder</div>
+      <div class="card-body">Virksomheder der bygger AI-enabled processer nu rider bølgen opad. Hver ny model gør deres processer automatisk bedre. De akkumulerer fordel mens andre venter.</div>
+    </div>
+    <div class="card accent-border">
+      <div class="card-num">03</div>
+      <div class="card-title">Risikoen er ikke AI</div>
+      <div class="card-body">Det er ikke AI der overtager jeres job. Det er en konkurrent der bruger AI til at levere det samme produkt hurtigere, billigere og bedre.</div>
+    </div>
+  </div>
+  <div class="big-quote" style="margin-top:32px;font-size:18px">"Det er ikke AI der tager din plads. Det er personen der bruger AI."</div>
+</div>
+
+<!-- SLIDE 3: TO VEJE -->
+<div class="slide">
+  <div class="eyebrow">Valget</div>
+  <div class="slide-title">To veje.<br>Én arkitektur-beslutning.</div>
+  <div class="two-col" style="margin-top:32px">
+    <div>
+      <div class="col-label" style="color:var(--muted)">Vej 1 — Vent og se</div>
+      <div class="col-body">
+        AI lægges <strong>oven på</strong> eksisterende processer<br>
+        Hver ny model kræver manuel re-integration<br>
+        Human-in-the-loop forbliver for evigt<br>
+        — fordi det aldrig var designet til at forsvinde<br><br>
+        <strong style="color:var(--red)">Resultat: I er altid bagud</strong>
+      </div>
+    </div>
+    <div style="border-left:1px solid var(--card-border);padding-left:40px">
+      <div class="col-label">Vej 2 — Byg AI-enabled</div>
+      <div class="col-body">
+        Processer designet <strong>omkring AI</strong> fra starten<br>
+        Hver ny model gør processen automatisk bedre<br>
+        Human-in-the-loop er eksplicit designet<br>
+        til at aftage over tid<br><br>
+        <strong style="color:var(--green)">Resultat: I akkumulerer fordel</strong>
+      </div>
+    </div>
+  </div>
+  <div class="big-quote" style="margin-top:32px;font-size:17px">"Den arkitektur-beslutning I træffer i dag afgør hvilken vej I er på."</div>
+</div>
+
+<!-- SLIDE 4: S-KURVEN -->
+<div class="slide">
+  <div class="eyebrow">Timing</div>
+  <div class="slide-title">På kurven.<br><span class="accent">Ikke ved siden af.</span></div>
+  <div class="phase-row">
+    <div class="phase">
+      <div class="phase-label">2020–2022</div>
+      <div class="phase-title">For tidligt</div>
+      <div class="phase-body">Værktøjerne var for begrænsede. Rimeligt at vente.</div>
+    </div>
+    <div class="phase active-phase">
+      <div class="phase-label">Nu — 2023–2026</div>
+      <div class="phase-title">⚡ Sweet spot</div>
+      <div class="phase-body">God nok til at bygge på. Bliver bedre hurtigt. Her låser early movers fordelen ind.</div>
+    </div>
+    <div class="phase">
+      <div class="phase-label">2027+</div>
+      <div class="phase-title">For sent?</div>
+      <div class="phase-body">Gabet mellem AI-native og traditionelle virksomheder bliver strukturelt. Indhentning kræver genopbygning.</div>
+    </div>
+  </div>
+  <div class="slide-sub" style="margin-top:32px">Anthropic's research: erhverv med høj AI-eksponering forventes allerede at vokse <em>mindre</em> frem mod 2034. Markedet er allerede ved at prise forandringen ind.</div>
+  <div class="source">Kilde: Anthropic — Labor Market Impacts of AI, 2026</div>
+</div>
+
+<!-- SLIDE 5: HVAD BETYDER AI-ENABLED -->
+<div class="slide">
+  <div class="eyebrow">Definition</div>
+  <div class="slide-title">Hvad betyder<br><span class="accent">"AI-enabled"</span> egentlig?</div>
+  <div class="two-col">
+    <div>
+      <div class="col-label" style="color:var(--red)">Det er IKKE</div>
+      <div class="col-body">
+        "Vi bruger ChatGPT"<br>
+        "Vi har en AI-strategi"<br>
+        "Vi har ansat en data scientist"<br>
+        AI boltet på oven på eksisterende workflows
+      </div>
+    </div>
+    <div style="border-left:1px solid var(--card-border);padding-left:40px">
+      <div class="col-label">Det ER</div>
+      <div class="col-body">
+        <strong>Processer</strong> der har AI som native komponent<br>
+        <strong>Data-flows</strong> der fodrer AI og forbedres af AI-output<br>
+        <strong>Teams</strong> der ved HOW de arbejder med AI<br>
+        En kultur hvor <strong>"lad os prøve det med AI"</strong> er standard-spørgsmålet
+      </div>
+    </div>
+  </div>
+  <div class="big-quote" style="margin-top:28px;font-size:16px">"Traditionel proces: Menneske → Opgave → Output.<br>AI-enabled: Menneske definerer intent → AI eksekverer → Menneske validerer → Loop skrumper over tid."</div>
+</div>
+
+<!-- SLIDE 6: TRE MÅLGRUPPER -->
+<div class="slide">
+  <div class="eyebrow">Roadmap</div>
+  <div class="slide-title">Tre målgrupper.<br><span class="accent">Ét mål.</span></div>
+  <div class="card-grid cols-3" style="margin-top:36px">
+    <div class="card accent-border">
+      <div style="font-size:28px;margin-bottom:12px">🎯</div>
+      <div class="card-title">Ledelsen</div>
+      <div class="card-body">Retning, vision og hvad I skal beslutte. AI-transformation kræver ledelsesmæssige valg — ikke kun tekniske.</div>
+    </div>
+    <div class="card accent-border">
+      <div style="font-size:28px;margin-bottom:12px">🛠️</div>
+      <div class="card-title">Product Owners</div>
+      <div class="card-body">Hvordan I bygger produkter og processer AI-first. Frameworks, best practice og samskabelse med AI.</div>
+    </div>
+    <div class="card accent-border">
+      <div style="font-size:28px;margin-bottom:12px">💻</div>
+      <div class="card-title">Udviklere</div>
+      <div class="card-body">Tooling, arkitektur og det tekniske fundament. AI-first arkitektur kan ikke retrofittes — det skal bygges ind.</div>
+    </div>
+  </div>
+  <div class="slide-sub" style="margin-top:28px;font-style:italic">"Samme destination. Forskellig rejse."</div>
+</div>
+
+<!-- SLIDE 7: LEDELSEN - RETNING -->
+<div class="slide">
+  <div class="eyebrow">For ledelsen</div>
+  <div class="slide-title">Ledelsens job er ikke<br>at forstå AI dybt.</div>
+  <div class="slide-sub" style="margin-top:12px">Det er at skabe betingelserne for at AI-adoption kan ske.</div>
+  <div class="card-grid cols-3" style="margin-top:32px">
+    <div class="card">
+      <div class="card-num">01</div>
+      <div class="card-title">Ambitionsniveau</div>
+      <div class="card-body">Er I <strong>"AI-assisted"</strong> (AI hjælper mennesker) eller <strong>"AI-enabled"</strong> (processer designet til at AI gradvist overtager)? Det er to meget forskellige destinationer.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">02</div>
+      <div class="card-title">Investeringshorisont</div>
+      <div class="card-body">AI-enabled processer betaler sig over 18–36 måneder. Quarterly thinking dræber dette. Ledelsen skal beskytte det lange perspektiv.</div>
+    </div>
+    <div class="card">
+      <div class="card-num">03</div>
+      <div class="card-title">Fejlkultur</div>
+      <div class="card-body">AI-first kræver eksperimentering. Det kræver at fejl ikke er fatale — men at de er læringsdata. Det er et ledelsesvalg.</div>
+    </div>
+  </div>
+  <div class="source" style="margin-top:20px">Anthropic: De mest AI-eksponerede erhverv er typisk højtuddannede, højt lønnede vidensmedarbejdere. Exodrафts tekniske ekspertise er præcis det der er på spil.</div>
+</div>
+
+<!-- SLIDE 8: LEDELSEN - HVAD KOSTER DET AT VENTE -->
+<div class="slide">
+  <div class="eyebrow">For ledelsen</div>
+  <div class="slide-title">Hvad koster det<br>at <span class="accent">vente?</span></div>
+  <div class="card-grid cols-3" style="margin-top:36px">
+    <div class="card">
+      <div class="card-title">Konkurrenten rykker</div>
+      <div class="card-body">Hver måned I ikke bygger AI-enabled, får en konkurrent én måned mere på indlæringskurven. Det er ikke et hypotetisk problem — det sker nu.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Vaner sætter sig</div>
+      <div class="card-body">Teams der arbejder i traditionelle workflows i ét år, er sværere at bevæge end teams der startede rigtigt. Inertien vokser.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Genopbygning koster mere</div>
+      <div class="card-body">At retrofitte AI på eksisterende arkitektur er markant dyrere end at bygge AI-enabled fra starten. Jo længere I venter, desto større er regningen.</div>
+    </div>
+  </div>
+  <div class="big-quote" style="margin-top:28px;font-size:17px">"Det er ikke et spørgsmål om AI er klar til jer.<br>Det er et spørgsmål om I er klar til at ride bølgen mens den er på vej op."</div>
+</div>
+
+<!-- SLIDE 9: PRODUCT OWNERS -->
+<div class="slide">
+  <div class="eyebrow">For product owners</div>
+  <div class="slide-title">AI-first<br>produktudvikling.</div>
+  <div class="two-col" style="margin-top:28px">
+    <div>
+      <div class="col-label" style="color:var(--muted)">Før</div>
+      <div class="col-body" style="font-size:18px">"Hvordan løser vi dette med kode?"</div>
+      <br>
+      <div class="col-label">Nu</div>
+      <div class="col-body" style="font-size:18px">"Hvad skal AI gøre?<br>Hvad skal mennesket gøre?<br>Og hvornår skifter det?"</div>
+    </div>
+    <div style="border-left:1px solid var(--card-border);padding-left:40px">
+      <div class="col-label">Tre principper</div>
+      <div class="col-body">
+        <strong>Design for shrinkage</strong><br>
+        Hvert menneskestep skal eksplicit kunne reduceres over tid<br><br>
+        <strong>Data is the product</strong><br>
+        AI forbedres med data. Hver brugerinteraktion er træningsdata. Design for det.<br><br>
+        <strong>Ship fast, improve automatically</strong><br>
+        En AI-enabled feature forbedres når modellen forbedres. Ship nu, bliv bedre gratis.
+      </div>
+    </div>
+  </div>
+  <div class="source" style="margin-top:20px">Exodraft-eksempel: Xzense-controlleren. I dag: manuelle hastighedsindstillinger. AI-first design: den lærer per-installation optimale indstillinger automatisk.</div>
+</div>
+
+<!-- SLIDE 10: SAMSKABELSE -->
+<div class="slide">
+  <div class="eyebrow">For product owners</div>
+  <div class="slide-title">Hurtigere og bedre.<br><span class="accent">Samskabelse med AI.</span></div>
+  <div class="card-grid cols-2" style="margin-top:32px;max-width:800px">
+    <div class="card">
+      <div class="card-title">Spec-skrivning</div>
+      <div class="card-body">AI udkaster, menneske forfiner → <strong style="color:var(--accent)">3× hurtigere</strong></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Kundeanalyse</div>
+      <div class="card-body">AI analyserer 100 support-tickets → menneske validerer mønstre → <strong style="color:var(--accent)">10× mere indsigt</strong></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Konkurrentovervågning</div>
+      <div class="card-body">AI monitorerer kontinuerligt → menneske handler på signaler → <strong style="color:var(--accent)">aldrig bagud</strong></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Dokumentation</div>
+      <div class="card-body">AI genererer, menneske godkender → <strong style="color:var(--accent)">altid opdateret</strong></div>
+    </div>
+  </div>
+  <div class="big-quote" style="margin-top:28px;font-size:17px">"Mennesker sætter retning og validerer. AI eksekverer og syntetiserer."<br><span style="font-size:14px;color:var(--muted)">Det handler ikke om at erstatte product owners. Det handler om at én PO er lige så effektiv som tre.</span></div>
+</div>
+
+<!-- SLIDE 11: UDVIKLERE - ARKITEKTUR -->
+<div class="slide">
+  <div class="eyebrow">For udviklere</div>
+  <div class="slide-title">AI-first<br>arkitektur.</div>
+  <div class="card-grid cols-3" style="margin-top:32px">
+    <div class="card accent-border">
+      <div class="card-num" style="font-size:20px">Layer 1</div>
+      <div class="card-title">Data foundation</div>
+      <div class="card-body">Hver handling skaber struktureret data. Data-flows er designet til at fodre AI-systemer. Observability bygget ind fra dag ét.</div>
+    </div>
+    <div class="card accent-border">
+      <div class="card-num" style="font-size:20px">Layer 2</div>
+      <div class="card-title">AI integration points</div>
+      <div class="card-body">Klare interfaces hvor AI træffer beslutninger. Human override altid muligt — men designet til at override-frekvensen falder over tid.</div>
+    </div>
+    <div class="card accent-border">
+      <div class="card-num" style="font-size:20px">Layer 3</div>
+      <div class="card-title">Learning loop</div>
+      <div class="card-body">AI-output feeder tilbage som træningssignal. Hvert cycle forbedrer modellens performance på jeres specifikke use case. Det er den akkumulerende fordel.</div>
+    </div>
+  </div>
+  <div class="big-quote" style="margin-top:24px;font-size:16px">"En traditionel arkitektur kan ikke retrofittes til dette. Det skal bygges ind fra starten."</div>
+</div>
+
+<!-- SLIDE 12: UDVIKLERE - TOOLING -->
+<div class="slide">
+  <div class="eyebrow">For udviklere</div>
+  <div class="slide-title">Tooling<br><span class="accent">i dag.</span></div>
+  <div class="card-grid cols-2" style="margin-top:28px;max-width:800px">
+    <div class="card">
+      <div class="card-title">Coding</div>
+      <div class="card-body">GitHub Copilot, Cursor, Claude Code — ikke "AI-assisteret", men reel pair programming. Koden skrives hurtigere og med færre fejl.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Testing</div>
+      <div class="card-body">AI-genererede test suites, automatisk edge case-opdagelse. Test-coverage der ville tage uger at skrive manuelt.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Code review</div>
+      <div class="card-body">AI flagger problemer inden mennesker reviewer. Færre kommentarer der handler om stil, flere der handler om arkitektur.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Architecture</div>
+      <div class="card-body">AI som sparringspartner med fuld kodebase-kontekst. "Hvad sker der hvis vi ændrer dette?" besvaret på sekunder.</div>
+    </div>
+  </div>
+  <div class="stat-row" style="margin-top:24px">
+    <div class="stat"><div class="stat-num">30–50%</div><div class="stat-label">hurtigere på rutineopgaver</div></div>
+    <div class="stat"><div class="stat-num">2026</div><div class="stat-label">AI-tooling er standard, ikke premium</div></div>
+  </div>
+  <div class="big-quote" style="margin-top:20px;font-size:15px">"Udviklere der ikke bruger disse værktøjer i 2026 er som udviklere der ikke brugte Stack Overflow i 2010."</div>
+</div>
+
+<!-- SLIDE 13: HUMAN IN THE LOOP -->
+<div class="slide">
+  <div class="eyebrow">Kernefilosofien</div>
+  <div class="slide-title">Human-in-the-loop.<br><span class="accent">En midlertidig tilstand.</span></div>
+  <div class="phase-row" style="margin-top:32px">
+    <div class="phase active-phase">
+      <div class="phase-label">Fase 1 — I dag</div>
+      <div class="phase-title">Assist</div>
+      <div class="phase-body">AI foreslår. Menneske beslutter. Altid. <em>Hvor de fleste virksomheder er nu.</em></div>
+    </div>
+    <div class="phase">
+      <div class="phase-label">Fase 2 — På vej</div>
+      <div class="phase-title">Validate</div>
+      <div class="phase-body">AI beslutter. Menneske reviewer undtagelser. <em>Hvor AI-enabled virksomheder er på vej hen.</em></div>
+    </div>
+    <div class="phase">
+      <div class="phase-label">Fase 3 — Destination</div>
+      <div class="phase-title">Autonomous</div>
+      <div class="phase-body">AI opererer inden for definerede parametre. Menneske sætter parametre. <em>Arkitekturen skal tillade dette.</em></div>
+    </div>
+  </div>
+  <div class="big-quote" style="margin-top:28px;font-size:16px">"Hvis jeres procesarkitektur ikke har en vej fra Fase 1 til Fase 3, bygger I en blindgyde."</div>
+  <div class="source" style="margin-top:8px">Exodraft-eksempel: Forbrændingsovervågning. Fase 1 = alarm til menneske. Fase 2 = auto-justering med menneskelig review. Fase 3 = fuldt autonomt med menneskesatte parametre hvert kvartal.</div>
+</div>
+
+<!-- SLIDE 14: HVAD EXODRAFT KAN GØRE NU -->
+<div class="slide">
+  <div class="eyebrow">Handling</div>
+  <div class="slide-title">Hvad Exodraft<br>kan gøre <span class="accent">nu.</span></div>
+  <div class="card-grid cols-3" style="margin-top:32px">
+    <div class="card accent-border">
+      <div class="card-num">01</div>
+      <div class="card-title">Vælg ét workflow</div>
+      <div class="card-body">Redesign ét produkt-workflow AI-first. Start med kundeklager → analyse → produkt-forbedring-loopet. Mål hvad det giver. Vis resultatet internt.</div>
+    </div>
+    <div class="card accent-border">
+      <div class="card-num">02</div>
+      <div class="card-title">Giv alle udviklere AI-tooling</div>
+      <div class="card-body">Cursor, Copilot eller Claude Code til hele teamet. Mål velocity efter 30 dage. Fejr resultaterne. Det er den letteste måde at skabe kulturel tro på AI.</div>
+    </div>
+    <div class="card accent-border">
+      <div class="card-num">03</div>
+      <div class="card-title">Byg én agent</div>
+      <div class="card-body">Én agent der gør noget nyttigt — regulatorisk overvågning, kunde-indsigt, konkurrenttracking. Vis teamet hvad "agent-tænkning" ser ud i praksis.</div>
+    </div>
+  </div>
+  <div class="big-quote" style="margin-top:28px;font-size:17px">"I behøver ikke transformere alt på én gang.<br>I skal bare starte rigtigt."</div>
+</div>
+
+<!-- SLIDE 15: CLOSING -->
+<div class="slide">
+  <div class="eyebrow">Konklusion</div>
+  <div class="slide-title" style="font-size:clamp(22px,3.5vw,46px);max-width:720px;margin:0 auto">
+    "Om 3 år vil alle virksomheder bruge AI.<br><br>
+    <span style="color:var(--accent)">De virksomheder der startede i dag<br>
+    vil have 3 års erfaring.</span><br><br>
+    De andre starter forfra."
+  </div>
+  <div class="divider" style="margin-top:40px"></div>
+  <div style="margin-top:24px;font-size:14px;color:var(--muted)">
+    henrik@lambert.dk &nbsp;·&nbsp; slambert.com
+  </div>
+</div>
+
+</div><!-- #deck -->
+
+<script>
+function checkGate(){
+  var v=document.getElementById('gate-input').value.trim();
+  if(v==='exodraft2802'){document.getElementById('gate').style.display='none';document.getElementById('gate-input').value='';}
+  else{var e=document.getElementById('gate-err');e.textContent='Forkert kode';document.getElementById('gate-input').value='';document.getElementById('gate-input').focus();}
+}
+
+const slides=document.querySelectorAll('.slide');
+const total=slides.length;
+let current=0;
+
+function goTo(n){
+  if(n<0||n>=total)return;
+  slides[current].classList.remove('active');
+  current=n;
+  slides[current].classList.add('active');
+  document.getElementById('progress').style.width=((current+1)/total*100)+'%';
+  document.getElementById('counter').textContent=(current+1)+' / '+total;
+}
+
+document.addEventListener('keydown',e=>{
+  if(document.getElementById('gate').style.display!=='none')return;
+  if(e.key==='ArrowRight'||e.key===' ')goTo(current+1);
+  if(e.key==='ArrowLeft')goTo(current-1);
+});
+
+goTo(0);
+</script>
+</body>
+</html>
