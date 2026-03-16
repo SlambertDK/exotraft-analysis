@@ -1,8 +1,8 @@
-# ExoTraft — Installation Pain Analysis & Solutions
+# Exodraft — Installation Pain Analysis & Solutions
 
 ## The Two Adoption Killers
 
-These are not minor UX issues. They are conversion killers that cost ExoTraft 50-70% of interested buyers.
+These are not minor UX issues. They are conversion killers that cost Exodraft 50-70% of interested buyers.
 
 ### Pain 1: Chimney top mounting
 - Ladder access = dangerous or impossible for most homeowners
@@ -29,7 +29,7 @@ Mount at chimney base, not top. Push from bottom instead of pull from top.
 - Precedent: Inline duct fans in HVAC work exactly this way
 
 ### Option B: Magnetic snap-mount system
-Integrated chimney cap + fan unit. Existing cap comes off, ExoTraft snaps on.
+Integrated chimney cap + fan unit. Existing cap comes off, Exodraft snaps on.
 - No tools, no drilling
 - Homeowner installs in 10 minutes from roof edge with extension pole
 - Sweep installs during annual service visit
@@ -44,7 +44,7 @@ Explicitly designed for pole-mount from ground level.
 Commercial drones can place objects precisely at chimney height.
 - Zero human roof access
 - Urban areas: drone service as premium installation option
-- ExoTraft partners with drone delivery company
+- Exodraft partners with drone delivery company
 
 ---
 
@@ -91,12 +91,12 @@ Exits at stove connection point inside the house.
 Cable channel integrated into stainless steel flexible liner.
 New builds get power infrastructure "for free" during liner install.
 
-- Partner with Schiedel, Poujoulat, Jeremias for "ExoTraft-ready liners"
+- Partner with Schiedel, Poujoulat, Jeremias for "Exodraft-ready liners"
 - Zero additional installation cost for new installations
 
 ---
 
-## The Killer Product Concept: ExoTraft Solar
+## The Killer Product Concept: Exodraft Solar
 
 **One product that eliminates both pains simultaneously:**
 
@@ -119,7 +119,7 @@ New builds get power infrastructure "for free" during liner install.
 
 ## Competitive Impact
 
-If ExoTraft solves power + mounting:
+If Exodraft solves power + mounting:
 
 | Factor | Before | After |
 |--------|--------|-------|
@@ -147,4 +147,4 @@ If ExoTraft solves power + mounting:
 
 *"If installation was completely self-service — no electrician, no roofer, 20 minutes — how does that change your conversion rate and your addressable market?"*
 
-The answer to that question defines whether ExoTraft is a €5M Danish company or a €50M European company.
+The answer to that question defines whether Exodraft is a €5M Danish company or a €50M European company.

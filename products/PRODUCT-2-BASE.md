@@ -1,4 +1,4 @@
-# ExoTraft Base — Product White Paper
+# Exodraft Base — Product White Paper
 **Version 1.0 | March 2026 | CONFIDENTIAL**
 
 ---
@@ -6,10 +6,10 @@
 ## 1. Executive Summary
 
 ### Product Vision
-ExoTraft Base is a chimney draft booster that mounts at the **base** of the chimney — at the stove or fireplace connection point — not on the roof. It pushes air upward from below using inline fan technology, connects to a standard Schuko wall outlet, and can be fully installed by the homeowner in 30 minutes without any tools beyond a screwdriver. No roof access. No roofer. No electrician. No permits.
+Exodraft Base is a chimney draft booster that mounts at the **base** of the chimney — at the stove or fireplace connection point — not on the roof. It pushes air upward from below using inline fan technology, connects to a standard Schuko wall outlet, and can be fully installed by the homeowner in 30 minutes without any tools beyond a screwdriver. No roof access. No roofer. No electrician. No permits.
 
 ### Why Base-Mounting Works Aerodynamically
-Natural chimney draft depends on buoyancy: hot gas is less dense and rises. A base-mounted fan augments this same upward flow by adding mechanical pressure at the entry point. The Venturi geometry of the ExoTraft Base unit accelerates airflow through a narrowed inlet section, reducing static pressure and drawing combustion gases more forcefully into the flue column. This works most effectively in **short-to-medium chimneys** (up to 6–8 meters) where the total pressure deficit is modest and a 100–200 Pa boost resolves the problem entirely.
+Natural chimney draft depends on buoyancy: hot gas is less dense and rises. A base-mounted fan augments this same upward flow by adding mechanical pressure at the entry point. The Venturi geometry of the Exodraft Base unit accelerates airflow through a narrowed inlet section, reducing static pressure and drawing combustion gases more forcefully into the flue column. This works most effectively in **short-to-medium chimneys** (up to 6–8 meters) where the total pressure deficit is modest and a 100–200 Pa boost resolves the problem entirely.
 
 ### Target Customer
 - Homeowners with modern stoves or inserts connected to masonry or liner chimneys (6m or less)
@@ -20,10 +20,10 @@ Natural chimney draft depends on buoyancy: hot gas is less dense and rises. A ba
 ### Key Wins
 1. **Normal wall outlet** — Schuko plug, 230V, no electrician, no permit
 2. **Ground-level installation** — no ladder, no roofer, no roof insurance issues
-3. **€149–199 entry price** — the affordable entry into the ExoTraft ecosystem
+3. **€149–199 entry price** — the affordable entry into the Exodraft ecosystem
 
 ### Why This Product Wins
-ExoTraft Base solves the roof access problem completely by moving the technology to where the customer already is. At €149–199 with a Schuko plug and a 30-minute DIY install, it removes every single barrier that prevents a hesitant customer from buying.
+Exodraft Base solves the roof access problem completely by moving the technology to where the customer already is. At €149–199 with a Schuko plug and a 30-minute DIY install, it removes every single barrier that prevents a hesitant customer from buying.
 
 ---
 
@@ -31,7 +31,7 @@ ExoTraft Base solves the roof access problem completely by moving the technology
 
 ### 2.1 Aerodynamic Design
 
-**Operating Principle:** The ExoTraft Base unit is an inline duct fan with a custom Venturi inlet section. When installed between the stove outlet and the first chimney section, it:
+**Operating Principle:** The Exodraft Base unit is an inline duct fan with a custom Venturi inlet section. When installed between the stove outlet and the first chimney section, it:
 1. Accelerates incoming flue gas via a converging inlet (Venturi effect)
 2. Adds kinetic energy via the impeller
 3. Delivers pressurized gas into the chimney column
@@ -58,7 +58,7 @@ ExoTraft Base solves the roof access problem completely by moving the technology
 | Noise | Lower at equal flow | Higher (spiral housing) |
 | **Recommendation** | **Primary design choice** | Fallback for deep/narrow chimneys |
 
-**Conclusion:** Inline axial design with Venturi inlet for most installations. A centrifugal variant (higher pressure model) for narrow masonry chimneys can be offered as "ExoTraft Base Pro."
+**Conclusion:** Inline axial design with Venturi inlet for most installations. A centrifugal variant (higher pressure model) for narrow masonry chimneys can be offered as "Exodraft Base Pro."
 
 **CFD Simulation Requirements:**
 - 3D CFD validation required before tooling (estimated: 15–25 hours computational, €3,000–6,000 consultant time)
@@ -70,7 +70,7 @@ ExoTraft Base solves the roof access problem completely by moving the technology
 
 ### 2.2 Motor Specification
 
-**Motor Requirements:** Unlike Product 1 (battery-powered), ExoTraft Base has mains power available. This opens the door to higher-power AC motors or efficient EC (electronically commutated) motors with external drive electronics.
+**Motor Requirements:** Unlike Product 1 (battery-powered), Exodraft Base has mains power available. This opens the door to higher-power AC motors or efficient EC (electronically commutated) motors with external drive electronics.
 
 **Option A: 230V AC Induction Motor**
 - Simple, cheap, proven
@@ -104,13 +104,13 @@ ExoTraft Base solves the roof access problem completely by moving the technology
 - Similar specs; strong European market presence; good for volume OEM
 - Slight cost premium vs. ebm-papst; better availability in some markets
 
-**EC Motor advantage:** Built-in speed controller responds to 0–10V or PWM signal from ExoTraft Base controller PCB — no need for separate VFD.
+**EC Motor advantage:** Built-in speed controller responds to 0–10V or PWM signal from Exodraft Base controller PCB — no need for separate VFD.
 
 ---
 
 ### 2.3 Heat Management
 
-**Challenge:** The ExoTraft Base unit is installed immediately downstream of the stove outlet. Flue gas temperatures at this point can reach **150–350°C** during active burning. The fan motor must be protected.
+**Challenge:** The Exodraft Base unit is installed immediately downstream of the stove outlet. Flue gas temperatures at this point can reach **150–350°C** during active burning. The fan motor must be protected.
 
 **Thermal Isolation Strategy:**
 
@@ -140,7 +140,7 @@ ExoTraft Base solves the roof access problem completely by moving the technology
 
 **Compatibility:**
 
-| Chimney Size | Inner Diameter | ExoTraft Base Variant |
+| Chimney Size | Inner Diameter | Exodraft Base Variant |
 |-------------|----------------|----------------------|
 | Small (wood stove) | 150mm | Base-150 |
 | Standard | 175mm | Base-175 |
@@ -164,14 +164,14 @@ ExoTraft Base solves the roof access problem completely by moving the technology
 
 **Control Tiers (two product variants):**
 
-**Tier 1: ExoTraft Base Standard (€149)**
+**Tier 1: Exodraft Base Standard (€149)**
 - Simple thermostat control: probe inserted into flue, fan starts when flue temp >60°C
 - Manual speed dial (3-position: Low / Medium / High)
 - No app, no connectivity
 - Single LED indicator: Green (running), Yellow (standby), Red (fault/overheat)
 - Backdraft protection: pressure switch cuts power if positive pressure detected
 
-**Tier 2: ExoTraft Base Smart (€199)**
+**Tier 2: Exodraft Base Smart (€199)**
 - ESP32-S3 controller
 - Sensirion SDP810 differential pressure sensor (continuous draft monitoring)
 - Auto-modulating speed (maintains target draft pressure, -10 to -15 Pa)
@@ -238,14 +238,14 @@ Reset: manual reset required after backdraft event
 
 ### 4.1 Physical Installation
 
-ExoTraft Base fits between the stove/fireplace outlet and the first chimney section. It replaces a standard 250mm straight pipe section.
+Exodraft Base fits between the stove/fireplace outlet and the first chimney section. It replaces a standard 250mm straight pipe section.
 
 **Installation Steps (Target: ≤30 minutes):**
 
 1. **Ensure fire is fully extinguished and flue is cold** (safety step — written prominently in manual)
 2. Remove existing pipe section at stove outlet connection point
 3. Slide bandclamp collar onto stove outlet pipe
-4. Fit ExoTraft Base unit — inlet end to stove outlet, outlet end to chimney pipe above
+4. Fit Exodraft Base unit — inlet end to stove outlet, outlet end to chimney pipe above
 5. Tighten both bandclamp collars with screwdriver (T-bolt, ¼ turn to secure)
 6. Route Schuko power cable to nearest wall outlet (cable included, 1.5m)
 7. Light fire (small test fire); verify fan activates and draft is strong
@@ -286,7 +286,7 @@ ExoTraft Base fits between the stove/fireplace outlet and the first chimney sect
 
 ### Chimney System Standards
 
-| Standard | Scope | Impact on ExoTraft Base |
+| Standard | Scope | Impact on Exodraft Base |
 |----------|-------|------------------------|
 | EN 1856-1:2009 | Chimneys — metal chimney systems | All flue-contact metal components must comply; 316L stainless specified here meets requirements |
 | EN 15287-1:2007 | Chimney design and installation | Advisory for installation guidance; not product certification |
@@ -317,7 +317,7 @@ All components in the flue-contact zone are rated for continuous 400°C operatio
 
 ## 6. Limitations (Honest Assessment)
 
-ExoTraft Base is not the right solution for every chimney. The following limitations must be clearly communicated:
+Exodraft Base is not the right solution for every chimney. The following limitations must be clearly communicated:
 
 ### 6.1 Physics Limitations
 
@@ -325,7 +325,7 @@ ExoTraft Base is not the right solution for every chimney. The following limitat
 
 **Very narrow masonry chimneys:** Old masonry chimneys may have rough internal surfaces and tight cross-sections. These create high resistance that requires more pressure authority. Base-mounted axial fan may not provide sufficient pressure rise — centrifugal variant (Base Pro) is recommended.
 
-**Sealed combustion appliances:** Some modern high-efficiency stoves use balanced flue (room-sealed) systems with co-axial pipes. ExoTraft Base is not compatible with these installations — they are purpose-designed for specific flue arrangements.
+**Sealed combustion appliances:** Some modern high-efficiency stoves use balanced flue (room-sealed) systems with co-axial pipes. Exodraft Base is not compatible with these installations — they are purpose-designed for specific flue arrangements.
 
 ### 6.2 Thermal/Condensation Limitations
 
@@ -334,7 +334,7 @@ ExoTraft Base is not the right solution for every chimney. The following limitat
 - Use the condensate drain port during first season
 - Consider chimney insulation wrap for very cold outdoor masonry chimneys
 
-**Backpressure from long chimney runs:** Unusually long horizontal runs (>2 meters) between stove and chimney increase resistance significantly. ExoTraft Base can compensate up to ~2.5m horizontal run; beyond this, recommend re-routing or Product 1.
+**Backpressure from long chimney runs:** Unusually long horizontal runs (>2 meters) between stove and chimney increase resistance significantly. Exodraft Base can compensate up to ~2.5m horizontal run; beyond this, recommend re-routing or Product 1.
 
 ### 6.3 Compatibility Limitations
 
@@ -349,7 +349,7 @@ ExoTraft Base is not the right solution for every chimney. The following limitat
 | Multi-fuel chimneys | ⚠️ Check | Wood only; verify fuel compatibility |
 
 ### 6.4 Marketing Language Guidance
-Avoid claiming ExoTraft Base "works for all chimneys" — this will generate returns and negative reviews. Instead: "ExoTraft Base works for 80% of modern wood-burning installations. Unsure? Use our chimney checker tool." (A 5-question online wizard can qualify/disqualify prospects before purchase.)
+Avoid claiming Exodraft Base "works for all chimneys" — this will generate returns and negative reviews. Instead: "Exodraft Base works for 80% of modern wood-burning installations. Unsure? Use our chimney checker tool." (A 5-question online wizard can qualify/disqualify prospects before purchase.)
 
 ---
 
@@ -357,7 +357,7 @@ Avoid claiming ExoTraft Base "works for all chimneys" — this will generate ret
 
 ### Why This Product Should Launch First
 
-ExoTraft Base has:
+Exodraft Base has:
 - **Lower NRE cost** (~€90,000–130,000 vs. €215,000 for Solar)
 - **Simpler certifications** (no battery, no TEG, no solar)
 - **Faster time to market** (12–15 months vs. 18–24 for Solar)
@@ -370,8 +370,8 @@ ExoTraft Base has:
 
 | SKU | Retail (€) | BOM (1k vol, €) | Gross Margin | Channel |
 |-----|-----------|-----------------|--------------|---------|
-| ExoTraft Base Standard | 149 | 68 | 54% | Online + hardware stores |
-| ExoTraft Base Smart | 199 | 88 | 56% | Online + stove dealers |
+| Exodraft Base Standard | 149 | 68 | 54% | Online + hardware stores |
+| Exodraft Base Smart | 199 | 88 | 56% | Online + stove dealers |
 | Upgrade kit (Standard → Smart) | 49 | 15 | 69% | Accessory upsell |
 
 *54–56% gross margin is solid for an entry hardware product. Aim to improve to 60%+ at 5k+ volume.*
@@ -415,28 +415,28 @@ Break-even at ~1,200–1,600 units is achievable within Year 2.
 ### Product Ecosystem Position
 
 ```
-ExoTraft Base (€149–199)
+Exodraft Base (€149–199)
   └── Entry product, accessible, high volume
   └── Builds brand, installer base, data
   └── Customer upgrades to Solar or Cap Pro for harder cases
   └── Installer recommends Base for new stove sales
 
-ExoTraft Solar (€299–399)
+Exodraft Solar (€299–399)
   └── Premium, hard-to-reach chimneys, vacation homes
   └── Buyers: customers who tried Base but need more, or don't want any wiring
 
-ExoTraft Cap Pro (€499–599)
+Exodraft Cap Pro (€499–599)
   └── New builds, renovations, data-hungry installers
   └── Professional channel — installer-sold
 ```
 
 ### Risk Factors
-1. **Competition from HVAC suppliers** — ebm-papst or similar could enter the consumer market directly; ExoTraft's advantage is the brand, app, and chimney-specific design
+1. **Competition from HVAC suppliers** — ebm-papst or similar could enter the consumer market directly; Exodraft's advantage is the brand, app, and chimney-specific design
 2. **Chimney compatibility returns** — manage with online chimney checker tool and clear compatibility guide; target <5% return rate
 3. **Condensation warranty claims** — manage with clear wood moisture requirements in manual
 4. **Motor thermal failure** — addressed by multi-layer thermal protection; design conservatively
 
 ---
 
-*Document prepared by ExoTraft Product Team | Version 1.0 | March 2026*
+*Document prepared by Exodraft Product Team | Version 1.0 | March 2026*
 *Classification: Confidential — Internal Use Only*

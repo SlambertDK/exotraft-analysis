@@ -1,8 +1,8 @@
-# ExoTraft — Strategic Analysis & Innovation Lab
+# Exodraft — Strategic Analysis & Innovation Lab
 
-> Prepared for Henrik Lambert's advisory engagement with ExoTraft ApS
+> Prepared for Henrik Lambert's advisory engagement with Exodraft ApS
 
-ExoTraft makes chimney draft fans — electric fans mounted on chimney tops that mechanically create suction when natural draft is insufficient.
+Exodraft makes chimney draft fans — electric fans mounted on chimney tops that mechanically create suction when natural draft is insufficient.
 
 ## Contents
 

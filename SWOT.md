@@ -1,4 +1,4 @@
-# ExoTraft — SWOT Analysis
+# Exodraft — SWOT Analysis
 
 ## Strengths
 - **Clear problem-solution fit** — smoke blowback is a real, painful, common problem
@@ -19,11 +19,11 @@
 - **Insurance industry** — bad draft = chimney fire risk = insurers motivated to subsidize prevention
 - **Restaurant/commercial** — wood-fired pizza is a global trend, premium restaurants need reliable draft
 - **Platform play** — "combustion intelligence" platform wider than just chimney fans
-- **Exit to Systemair/Schiedel/Wienerberger** — strategic acquirer obvious if ExoTraft builds scale
+- **Exit to Systemair/Schiedel/Wienerberger** — strategic acquirer obvious if Exodraft builds scale
 
 ## Threats
 - **Chinese commoditization** — €100 Amazon units erode consumer segment
-- **Enervex counterattack** — if ExoTraft succeeds, Enervex can build a connected product
+- **Enervex counterattack** — if Exodraft succeeds, Enervex can build a connected product
 - **Heat pump over-penetration** — if wood stoves decline faster than expected in urban areas
 - **Regulatory risk** — if EU bans wood burning in cities, TAM shrinks (though commercial/rural persists)
 - **Distribution channel conflict** — going D2C may alienate installer network

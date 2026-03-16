@@ -1,4 +1,4 @@
-# ExoTraft — 50 Innovation Ideas
+# Exodraft — 50 Innovation Ideas
 
 *Organized by category. Rated: 🔥 High impact / 💡 Medium / 🌱 Long-term*
 
@@ -10,9 +10,9 @@
 
 2. 🔥 **Combustion Score** — Integrate PM2.5 + CO sensor into fan unit. Real-time air quality score shown in app: "Clean burn: 94%". First chimney fan that tells you *how well* you're burning, not just whether the fan is running.
 
-3. 🔥 **Draft API** — Open API exposing draft data to Home Assistant, Apple Home, Google Home, IFTTT. Community builds integrations. Network effect without ExoTraft paying for it.
+3. 🔥 **Draft API** — Open API exposing draft data to Home Assistant, Apple Home, Google Home, IFTTT. Community builds integrations. Network effect without Exodraft paying for it.
 
-4. 💡 **Insurance Data Platform** — Anonymized fleet combustion data sold to insurers. Tryg/Topdanmark can price chimney fire risk accurately. ExoTraft gets B2B revenue; insurers get loss prevention.
+4. 💡 **Insurance Data Platform** — Anonymized fleet combustion data sold to insurers. Tryg/Topdanmark can price chimney fire risk accurately. Exodraft gets B2B revenue; insurers get loss prevention.
 
 5. 🔥 **Weather-Adaptive Draft** — Fan RPM automatically adjusts based on live weather API (wind speed/direction, barometric pressure, temperature). No manual adjustment needed. Sells itself in demo.
 
@@ -24,7 +24,7 @@
 
 9. 💡 **Neighbor Mode** — GPS + wind direction sensor. Automatically reduce smoke output when wind blows toward neighboring houses. Prevents neighbor complaints. Huge in dense urban areas.
 
-10. 🌱 **Municipal Air Quality Mesh** — Network of all ExoTraft units = distributed PM2.5 sensor grid. License data to municipalities for urban air quality monitoring. Secondary revenue stream, massive PR value.
+10. 🌱 **Municipal Air Quality Mesh** — Network of all Exodraft units = distributed PM2.5 sensor grid. License data to municipalities for urban air quality monitoring. Secondary revenue stream, massive PR value.
 
 ---
 
@@ -58,43 +58,43 @@
 
 22. 🔥 **Chimney Sweep Partnership Program** — Sweeps recommend and install during annual service. Rev-share: sweep gets €50/unit sold. Training + certification provided free. Turns competitors into a distribution channel.
 
-23. 🔥 **Insurance Bundle** — Partner with Tryg/Topdanmark: "Install ExoTraft Certified, get 5% home insurance discount." Insurer subsidizes hardware, ExoTraft gets distribution, homeowner gets cheaper insurance.
+23. 🔥 **Insurance Bundle** — Partner with Tryg/Topdanmark: "Install Exodraft Certified, get 5% home insurance discount." Insurer subsidizes hardware, Exodraft gets distribution, homeowner gets cheaper insurance.
 
-24. 💡 **Airbnb Verified Fireplace Badge** — Partner with Airbnb: properties with ExoTraft get "Verified Working Fireplace" badge. Hosts pay for certification. Drives D2C sales without advertising spend.
+24. 💡 **Airbnb Verified Fireplace Badge** — Partner with Airbnb: properties with Exodraft get "Verified Working Fireplace" badge. Hosts pay for certification. Drives D2C sales without advertising spend.
 
-25. 💡 **New Build Specification Program** — Work with architects and developers to spec ExoTraft into new build premium homes. Once specified, it flows through the entire build without sales effort.
+25. 💡 **New Build Specification Program** — Work with architects and developers to spec Exodraft into new build premium homes. Once specified, it flows through the entire build without sales effort.
 
-26. 🔥 **ExoTraft for Restaurants** — Wood-fired pizza is a global trend. Commercial version: higher capacity, 3-phase power, remote monitoring, service SLA. Restaurant can't afford downtime. Premium pricing: €2,000-5,000/unit.
+26. 🔥 **Exodraft for Restaurants** — Wood-fired pizza is a global trend. Commercial version: higher capacity, 3-phase power, remote monitoring, service SLA. Restaurant can't afford downtime. Premium pricing: €2,000-5,000/unit.
 
-27. 💡 **Energy Company Partnerships** — Ørsted/Energinet bundles ExoTraft with smart home energy packages. "Complete heating solution." Utility distributes hardware, ExoTraft gets zero-CAC customers.
+27. 💡 **Energy Company Partnerships** — Ørsted/Energinet bundles Exodraft with smart home energy packages. "Complete heating solution." Utility distributes hardware, Exodraft gets zero-CAC customers.
 
-28. 💡 **Property Developer White-Label** — Major developers (DOMEA, DAB) want branded smart home solutions. ExoTraft white-labels to their brand, ships pre-installed in new developments.
+28. 💡 **Property Developer White-Label** — Major developers (DOMEA, DAB) want branded smart home solutions. Exodraft white-labels to their brand, ships pre-installed in new developments.
 
 29. 🌱 **Facility Management Integration** — Connect to facility management platforms (Driftbuddy, Famly, FM:Systems). Property managers see all chimney status in one dashboard with their other building systems.
 
-30. 💡 **Municipal Housing Compliance** — Municipalities require older stoves to meet new emission standards. ExoTraft + EcoDesign stove = compliant installation. Partner with stove manufacturers for bundle sales.
+30. 💡 **Municipal Housing Compliance** — Municipalities require older stoves to meet new emission standards. Exodraft + EcoDesign stove = compliant installation. Partner with stove manufacturers for bundle sales.
 
 ---
 
 ## D. Product Extensions (Ideas 31-40)
 
-31. 💡 **ExoTraft Micro** — Stripped €129 version for apartments with decorative gas fireplaces needing minimal draft. Entry point for brand, upsell to full product later.
+31. 💡 **Exodraft Micro** — Stripped €129 version for apartments with decorative gas fireplaces needing minimal draft. Entry point for brand, upsell to full product later.
 
-32. 🔥 **ExoTraft Pro Restaurant Edition** — Commercial grade, 3-phase power, NSF certified, remote monitoring dashboard, 4-hour service SLA. Higher margin, lower volume, reference customers.
+32. 🔥 **Exodraft Pro Restaurant Edition** — Commercial grade, 3-phase power, NSF certified, remote monitoring dashboard, 4-hour service SLA. Higher margin, lower volume, reference customers.
 
-33. 💡 **ExoTraft Retrofit DIY Kit** — Self-install version with no electrician required (12V DC, battery-powered controller). For DIY market and vacation homes. Lower price, higher volume.
+33. 💡 **Exodraft Retrofit DIY Kit** — Self-install version with no electrician required (12V DC, battery-powered controller). For DIY market and vacation homes. Lower price, higher volume.
 
-34. 🌱 **ExoTraft Outdoor Kitchen** — BBQ smokers, outdoor pizza ovens, outdoor fireplaces all have draft problems. Weatherproof version. Large and growing market, no specialist competitor.
+34. 🌱 **Exodraft Outdoor Kitchen** — BBQ smokers, outdoor pizza ovens, outdoor fireplaces all have draft problems. Weatherproof version. Large and growing market, no specialist competitor.
 
 35. 💡 **Multi-Chimney Hub** — One controller managing 4 chimneys for large homes, farms, and manor houses. Single app interface. Premium product for premium properties.
 
-36. 🌱 **ExoTraft Sauna Edition** — Finnish/Swedish sauna smoke management. Specific use case, passionate niche community, premium willingness to pay. Great entry to Finnish market.
+36. 🌱 **Exodraft Sauna Edition** — Finnish/Swedish sauna smoke management. Specific use case, passionate niche community, premium willingness to pay. Great entry to Finnish market.
 
 37. 💡 **Tiny House / Van Edition** — 12V version for mobile wood stoves. Huge and growing van life / tiny house movement in Scandinavia. Strong social media marketing potential.
 
-38. 🌱 **Industrial Smokestacks** — Same physics at 10x scale. Factory/warehouse exhaust fans. Exit play: if ExoTraft builds industrial division, acquisition value to ABB, Systemair multiplies.
+38. 🌱 **Industrial Smokestacks** — Same physics at 10x scale. Factory/warehouse exhaust fans. Exit play: if Exodraft builds industrial division, acquisition value to ABB, Systemair multiplies.
 
-39. 💡 **ExoTraft Pellet Optimizer** — Works with pellet stoves to optimize pellet feed rate vs. draft for maximum efficiency and minimum emissions. Partners with Windhager, Rika, Fröling pellet stove brands.
+39. 💡 **Exodraft Pellet Optimizer** — Works with pellet stoves to optimize pellet feed rate vs. draft for maximum efficiency and minimum emissions. Partners with Windhager, Rika, Fröling pellet stove brands.
 
 40. 🌱 **Heat Recovery Integration** — Capture heat from exhaust gases before venting. Fan assists heat recovery ventilator (HRV). Combines with Nibe, Daikin heat pump systems.
 
@@ -106,21 +106,21 @@
 
 42. 💡 **Pay-Per-Use (Vacation Homes)** — €0.50/hour of use. Metered via smart plug + app. For seasonal properties where owner resists upfront investment. Could be highest-margin segment.
 
-43. 🔥 **ExoTraft Certified Installer Network** — Become the certification body for chimney fan installation in Denmark. Charge installers €200/year for certification. Creates recurring B2B revenue and controls quality narrative.
+43. 🔥 **Exodraft Certified Installer Network** — Become the certification body for chimney fan installation in Denmark. Charge installers €200/year for certification. Creates recurring B2B revenue and controls quality narrative.
 
-44. 💡 **ExoTraft Academy** — Online training platform for chimney sweeps and installers. Free basic course, €500 advanced certification. Content marketing + channel development + revenue.
+44. 💡 **Exodraft Academy** — Online training platform for chimney sweeps and installers. Free basic course, €500 advanced certification. Content marketing + channel development + revenue.
 
-45. 💡 **White-Label for Chimney Manufacturers** — Schiedel, Jeremias, Rockwool sell ExoTraft-powered fans under their own brand. Volume sales without consumer marketing cost. Royalty model.
+45. 💡 **White-Label for Chimney Manufacturers** — Schiedel, Jeremias, Rockwool sell Exodraft-powered fans under their own brand. Volume sales without consumer marketing cost. Royalty model.
 
-46. 🌱 **Data Licensing to Stove Manufacturers** — Jøtul, Morsø, Scan buy combustion quality data from ExoTraft fleet. Improves stove design. €50,000-200,000/year per manufacturer.
+46. 🌱 **Data Licensing to Stove Manufacturers** — Jøtul, Morsø, Scan buy combustion quality data from Exodraft fleet. Improves stove design. €50,000-200,000/year per manufacturer.
 
-47. 💡 **ExoTraft Premium Membership** — €149/year: priority support, extended warranty, annual service visit, early access to new features. Locks in loyal customers, reduces churn.
+47. 💡 **Exodraft Premium Membership** — €149/year: priority support, extended warranty, annual service visit, early access to new features. Locks in loyal customers, reduces churn.
 
 48. 🌱 **Carbon Credit Marketplace** — Aggregate clean combustion data across fleet, sell verified carbon offsets under EU ETS or Gold Standard. Long-term play as carbon markets mature.
 
 49. 💡 **Financing Partnership** — Partner with Ikano Bank / Santander Consumer for 24-month 0% financing. Removes price barrier for €500+ units. Common in HVAC sector.
 
-50. 🌱 **ExoTraft Franchise** — License the brand, training, and tools to regional chimney service companies across Europe. Franchisee gets territory exclusivity, ExoTraft gets distribution without headcount.
+50. 🌱 **Exodraft Franchise** — License the brand, training, and tools to regional chimney service companies across Europe. Franchisee gets territory exclusivity, Exodraft gets distribution without headcount.
 
 ---
 

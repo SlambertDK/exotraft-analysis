@@ -1,4 +1,4 @@
-# ExoTraft — Competitive Landscape
+# Exodraft — Competitive Landscape
 
 ## Primary Competitors
 
@@ -10,21 +10,21 @@
 - **Strengths:** Market leader, massive installer network, strong in commercial
 - **Weaknesses:** Industrial aesthetic, expensive, US-centric mindset, not connected/smart
 - **Price range:** €400-2000+
-- **Verdict:** ExoTraft's primary benchmark. Win on design, connectivity, consumer experience.
+- **Verdict:** Exodraft's primary benchmark. Win on design, connectivity, consumer experience.
 
 ### Exhausto / Systemair
 - **HQ:** Denmark (acquired by Swedish Systemair)
 - **Focus:** Primarily B2B ventilation, draft stabilizers as add-on
 - **Strengths:** Strong installer relationships in Denmark, trusted brand
 - **Weaknesses:** Draft fans are not their core — afterthought product
-- **Verdict:** Owns the installer channel in Denmark. ExoTraft must either partner or disrupt.
+- **Verdict:** Owns the installer channel in Denmark. Exodraft must either partner or disrupt.
 
 ### Schiedel
 - **HQ:** Austria (owned by Wienerberger)
 - **Focus:** Complete chimney systems, fans as accessories
 - **Strengths:** Full system sales, architect relationships, premium brand
 - **Weaknesses:** Sells fans as accessories, not primary focus
-- **Verdict:** Partnership opportunity — ExoTraft as preferred fan brand for Schiedel systems
+- **Verdict:** Partnership opportunity — Exodraft as preferred fan brand for Schiedel systems
 
 ### Jeremias
 - **HQ:** Germany
@@ -38,11 +38,11 @@
 - Quality: variable
 - No app, no support, no installer network
 - Growing fast on Amazon
-- **Verdict:** Price-down threat. ExoTraft must win on quality, support, connectivity, and warranty.
+- **Verdict:** Price-down threat. Exodraft must win on quality, support, connectivity, and warranty.
 
 ## Competitive Positioning Matrix
 
-| Factor | ExoTraft | Enervex | Exhausto | Chinese |
+| Factor | Exodraft | Enervex | Exhausto | Chinese |
 |--------|----------|---------|----------|---------|
 | Price | €€€ | €€€€ | €€€ | € |
 | Design | ★★★★★ | ★★★ | ★★★ | ★★ |
@@ -53,4 +53,18 @@
 | Data/AI | ★★★★ | ★ | ★ | ★ |
 
 ## White Space
-No competitor owns: **connected, consumer-friendly, data-driven, design-conscious** chimney fan. That is ExoTraft's space to claim.
+No competitor owns: **connected, consumer-friendly, data-driven, design-conscious** chimney fan. That is Exodraft's space to claim.
+
+---
+
+## IMPORTANT CONTEXT UPDATE
+
+**Exodraft IS the established market leader — not a challenger.**
+
+The competitive framing changes completely:
+- Exodraft was originally Exhausto (mentioned as competitor above — that IS Exodraft)
+- They invented the temperature-resistant chimney fan in 1957
+- They have the broadest product range, own dev lab, installer network
+- The question is not "how does Exodraft beat Enervex" — they already compete globally
+
+**The right competitive question:** How does Exodraft use AI/data to extend their lead and move up the value chain before a tech company (or Chinese hardware player) disrupts the category from below?

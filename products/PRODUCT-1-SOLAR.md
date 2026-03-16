@@ -1,4 +1,4 @@
-# ExoTraft Solar — Product White Paper
+# Exodraft Solar — Product White Paper
 **Version 1.0 | March 2026 | CONFIDENTIAL**
 
 ---
@@ -6,7 +6,7 @@
 ## 1. Executive Summary
 
 ### Product Vision
-ExoTraft Solar is a self-powered chimney draft fan that requires zero external electricity, zero electrician, and zero building permits. It integrates a flexible monocrystalline solar panel, a LiFePO4 battery pack, and a thermoelectric generator (TEG) backup — all in a weatherproof housing that installs from ground level using a standard chimney sweep extension pole in under 20 minutes.
+Exodraft Solar is a self-powered chimney draft fan that requires zero external electricity, zero electrician, and zero building permits. It integrates a flexible monocrystalline solar panel, a LiFePO4 battery pack, and a thermoelectric generator (TEG) backup — all in a weatherproof housing that installs from ground level using a standard chimney sweep extension pole in under 20 minutes.
 
 ### Target Customer
 - Homeowners with wood-burning stoves or fireplaces in rural Denmark and Scandinavia
@@ -15,7 +15,7 @@ ExoTraft Solar is a self-powered chimney draft fan that requires zero external e
 - Eco-conscious urban homeowners who want grid-independent operation
 
 ### Key Differentiator
-ExoTraft Solar is the only chimney draft fan in the world that is genuinely self-installing, self-powering, and self-regulating — with no trades required. Where competitors force a choice between a €400-800 electrician bill or not buying at all, ExoTraft Solar removes the question entirely.
+Exodraft Solar is the only chimney draft fan in the world that is genuinely self-installing, self-powering, and self-regulating — with no trades required. Where competitors force a choice between a €400-800 electrician bill or not buying at all, Exodraft Solar removes the question entirely.
 
 ### Why This Product Wins
 1. **Zero barriers to purchase** — no electrician, no permits, no roofer: the customer can go from box to working fan in one afternoon.
@@ -218,7 +218,7 @@ Sustained over 6h fire burn: 2.3W × 6h = 13.8 Wh contribution
 
 **Connectivity:**
 - **Primary:** Bluetooth 5.0 LE via ESP32-S3 onboard radio → smartphone app (iOS/Android)
-- **Optional add-on:** RFM95W LoRa module (868MHz, SPI) → ExoTraft Gateway or direct cloud via LoRaWAN (TTN)
+- **Optional add-on:** RFM95W LoRa module (868MHz, SPI) → Exodraft Gateway or direct cloud via LoRaWAN (TTN)
 - **LoRa use case:** Vacation homes/cabins where no WiFi exists; LoRa range 5–15km LOS, 1–3km through buildings
 
 **Control Algorithm:**
@@ -345,11 +345,11 @@ Safety factor: 1,410 N available ÷ 52.9 N load = 26.6× safety factor ✓
 
 1. Remove existing chimney cap (from ground using extension pole + cap-removal tool, if required)
 2. Place magnetic receiver plate over chimney flue opening — it self-centers
-3. Attach ExoTraft Solar to extension pole via M16 thread
+3. Attach Exodraft Solar to extension pole via M16 thread
 4. Raise unit to chimney top; align with receiver plate
 5. Lower into position — magnets engage with audible/tactile click
 6. Unscrew extension pole — it releases from the M16 socket
-7. Download ExoTraft app; scan QR code on housing; pair via Bluetooth
+7. Download Exodraft app; scan QR code on housing; pair via Bluetooth
 8. Configure desired draft level and schedule
 **Total: 15–20 minutes. No tools beyond standard chimney sweep pole.**
 
@@ -429,7 +429,7 @@ Safety factor: 1,410 N available ÷ 52.9 N load = 26.6× safety factor ✓
 
 ### Prior Art — Key Patents to Check
 - US9341373B2 — "Chimney fan with thermoelectric power generation" (check scope carefully)
-- EP2366951A2 — "Chimney draught fan" (existing ExoTraft-adjacent art)
+- EP2366951A2 — "Chimney draught fan" (existing Exodraft-adjacent art)
 - WO2014/173384 — Solar-powered ventilation systems (broad; check if chimney-specific excluded)
 - US20190186747A1 — Magnetic mounting systems for HVAC components
 
@@ -471,8 +471,8 @@ Month 18+:   Volume production ramp
 
 | SKU | Retail (€) | BOM (1k vol, €) | Gross Margin | Notes |
 |-----|-----------|-----------------|--------------|-------|
-| ExoTraft Solar (entry) | 299 | 92 | 69% | BLE only, 2×20W solar |
-| ExoTraft Solar Pro | 399 | 97 | 75% | + LoRa, 2×20W solar + TEG |
+| Exodraft Solar (entry) | 299 | 92 | 69% | BLE only, 2×20W solar |
+| Exodraft Solar Pro | 399 | 97 | 75% | + LoRa, 2×20W solar + TEG |
 | Replacement receiver plate | 29 | 4 | 86% | High-margin accessory |
 | Extension pole (branded) | 49 | 8 | 84% | Bundled or sold separately |
 
@@ -508,5 +508,5 @@ Month 18+:   Volume production ramp
 
 ---
 
-*Document prepared by ExoTraft Product Team | Version 1.0 | March 2026*
+*Document prepared by Exodraft Product Team | Version 1.0 | March 2026*
 *Classification: Confidential — Internal Use Only*

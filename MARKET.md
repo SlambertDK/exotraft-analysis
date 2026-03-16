@@ -1,4 +1,4 @@
-# ExoTraft — Market Analysis
+# Exodraft — Market Analysis
 
 ## Total Addressable Market
 

@@ -1,4 +1,4 @@
-# ExoTraft Cap Pro — Product White Paper
+# Exodraft Cap Pro — Product White Paper
 
 **Version:** 1.0 | **Date:** March 2026 | **Classification:** Confidential
 
@@ -7,7 +7,7 @@
 ## 1. Executive Summary
 
 ### Product Vision
-ExoTraft Cap Pro is a premium all-in-one smart chimney cap that replaces the existing chimney pot cap entirely. It integrates draft assistance, a full weather station, PM2.5/CO air quality monitoring, wind-direction optimization, and connectivity — in a single unit that installs in under 30 minutes using the existing chimney pot as its mounting base.
+Exodraft Cap Pro is a premium all-in-one smart chimney cap that replaces the existing chimney pot cap entirely. It integrates draft assistance, a full weather station, PM2.5/CO air quality monitoring, wind-direction optimization, and connectivity — in a single unit that installs in under 30 minutes using the existing chimney pot as its mounting base.
 
 ### Target Customer
 - New build premium homes (architect-specified)
@@ -18,7 +18,7 @@ ExoTraft Cap Pro is a premium all-in-one smart chimney cap that replaces the exi
 ### Why This Product Wins
 **For the homeowner:** One product replaces four: chimney cap + draft fan + weather station + air quality monitor. Everything in one app.
 
-**For ExoTraft:** The Cap Pro is the data platform play in hardware form. At 10,000 units, ExoTraft operates a hyperlocal air quality and weather sensor network across Denmark and Northern Europe — with commercial value to municipalities, insurers, and researchers.
+**For Exodraft:** The Cap Pro is the data platform play in hardware form. At 10,000 units, Exodraft operates a hyperlocal air quality and weather sensor network across Denmark and Northern Europe — with commercial value to municipalities, insurers, and researchers.
 
 **For the market:** No competitor offers this. Enervex sells industrial fans. Netatmo sells weather stations. Nobody has combined them for the chimney.
 
@@ -228,7 +228,7 @@ ExoTraft Cap Pro is a premium all-in-one smart chimney cap that replaces the exi
 
 **Installation sequence:**
 1. Remove existing chimney cap (usually just lifts off)
-2. Slide ExoTraft Cap Pro adapter collar over chimney pot
+2. Slide Exodraft Cap Pro adapter collar over chimney pot
 3. Tighten thumbscrews (no tools)
 4. Install thermocouple probe in flue access port (or through liner)
 5. Optional: route 12V backup cable through liner to indoor power point
@@ -272,7 +272,7 @@ Timeline: 4–6 months from final hardware to certification. Recommend engaging 
 - Contract manufacturer: Eastern Europe (Poland, Czech Republic) for assembly
 - Rationale: lower labor than Denmark, EU supply chain, quality oversight easier than Asia
 - Target: monthly batches of 200–500 units
-- QC: final test + firmware flash at ExoTraft Denmark facility
+- QC: final test + firmware flash at Exodraft Denmark facility
 
 ---
 
@@ -358,13 +358,13 @@ At €499 retail and 55% gross margin: break-even at ~1,700 units sold (hardware
 
 ---
 
-## 10. Positioning Within ExoTraft Product Line
+## 10. Positioning Within Exodraft Product Line
 
 | Product | Price | Install | Power | Target |
 |---------|-------|---------|-------|--------|
-| ExoTraft Base | €149–199 | DIY, 30 min | Wall outlet | Budget, base of chimney |
-| ExoTraft Solar | €299–399 | DIY, 20 min | Solar + TEG | Mid-market, top of chimney |
-| **ExoTraft Cap Pro** | **€499–599** | **DIY/Installer, 30-40 min** | **Solar + optional 12V** | **Premium, data platform** |
+| Exodraft Base | €149–199 | DIY, 30 min | Wall outlet | Budget, base of chimney |
+| Exodraft Solar | €299–399 | DIY, 20 min | Solar + TEG | Mid-market, top of chimney |
+| **Exodraft Cap Pro** | **€499–599** | **DIY/Installer, 30-40 min** | **Solar + optional 12V** | **Premium, data platform** |
 
 Cap Pro is the halo product — it makes the whole line look sophisticated and generates the data that funds the next phase of the business.
 

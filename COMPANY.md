@@ -1,44 +1,62 @@
-# ExoTraft — Company Profile
+# Exodraft — Company Profile
 
 ## Overview
-- **Company:** ExoTraft ApS
-- **Website:** exotraft.dk
-- **Country:** Denmark
-- **Category:** HVAC / Chimney Technology / Smart Home
-- **Core product:** Electric chimney draft fan — mechanically creates suction at chimney top when natural draft is insufficient
+- **Company:** Exodraft A/S (part of Exodraft Group)
+- **Website:** exodraft.com
+- **HQ:** Langeskov, Funen, Denmark
+- **Founded:** 1957 (originally Exhausto, founded by Kai Hermansen in Sorø)
+- **Category:** Energy technology — chimney fans, particle filters, heat recovery
+- **Position:** Global market leader in chimney fan solutions
+- **Slogan:** "Your Energy. Optimized."
 
-## The Product
+## The Group Structure
+Exodraft Group was formed after acquisitions in 2020–2021:
+- **Exodraft** — chimney fans, particle filters, heat recovery (chimney applications)
+- **Exodraft Energy** — boilers, district heating integration
+- **Exodraft Climate** — heat pumps, cooling/freezing solutions
 
-A chimney draft fan solves a fundamental physics problem: natural draft depends on:
-- Temperature differential (hot flue gas vs. cold outside air)
-- Chimney height
-- Atmospheric pressure
-- Wind direction and speed
-- Surrounding obstructions (trees, neighboring buildings)
+Together they offer end-to-end energy optimization from combustion to heat recovery to distribution.
 
-When these conditions are unfavorable, smoke blows back into the room. An electric draft fan eliminates this variability by mechanically creating constant suction regardless of conditions.
+## Product Portfolio (Chimney division)
 
-**Installation:** Mounted at the top of the chimney. Connects to power. Typically controlled via thermostat or smart controller.
+### Chimney Fans
+- **EFC series** (EFC15, EFC16, EFC18, EFC21, EFC35S) — residential and light commercial
+- **EHC / EAHC series** — high-capacity commercial
+- **EBC series** — boiler chimney applications
+- **Basic Plate 250–2000** — industrial range
+- **Safe Plate 80–500** — safety-focused installation
+- **Draftbooster** — inline draft booster
+- **RSV / RS series** — specialized applications
 
-**Use cases:**
-- Wood-burning stoves and fireplaces
-- Wood-fired pizza ovens and restaurant grills
-- Oil/gas boilers with poor draft
-- Older properties with short or damaged chimneys
-- Buildings where new obstructions (neighbor's extension, new trees) have disrupted draft
+### Particle Filters
+- **ESP-10** — electrostatic filter for wood-burning stoves
+- **ESP-25** — larger installations / pellet boilers
 
-## Positioning Hypothesis
-ExoTraft likely positions as:
-- Danish design quality vs. American Enervex (industrial feel)
-- Consumer-friendly vs. Exhausto (B2B/industrial focus)
-- Connected/smart vs. traditional dumb fans
-- Direct-to-consumer + certified installer network
+### Controls & Intelligence
+- **Xzense** — smart control system
+- **EFC controls** — thermostat + automation
+- **Bypass Damper / CFIR** — automated chimney management
 
-## Key Questions (to verify with CEO)
-- [ ] What is current ARR / revenue?
-- [ ] Consumer vs. B2B split today?
-- [ ] Connected (app) or dumb hardware?
-- [ ] Current geographic markets?
-- [ ] Funding stage / investor status?
-- [ ] Manufacturing: in-house or contract?
-- [ ] Installer network size?
+### Heat Recovery
+- Up to 95% waste heat recovery
+- Integration with district heating
+- Sector coupling capability
+
+## Key Differentiators vs. Competitors
+- **Original inventor** — Kai Hermansen created the first temperature-resistant chimney fan in 1957
+- **Own development laboratory** in Langeskov — tests all products in-house
+- **Broadest product range** — covers residential to industrial
+- **Group synergies** — chimney fan data feeds into heat recovery optimization
+
+## Culture & Values
+- **Integrity + expertise** as core values
+- Strong innovation tradition (Kai's spirit lives on)
+- Active in political/regulatory debate on fuel-based heating
+- Customer-centric: "trustworthy and quality-conscious optimization partner"
+
+## Strategic Context for Henrik's Meeting
+- Established company seeking to accelerate — not a startup finding direction
+- Innovation capability exists (dev lab, patent history) but may be slow/siloed
+- AI/agentic thinking is likely underexplored in their product and business development
+- The green transition is central to their identity — AI + data fits this narrative
+- The CEO knows the chimney market deeply — bring fresh thinking, not basics
