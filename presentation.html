@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Agentic Advantage &mdash; Exodraft x Lambert</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0a0e1a;--accent:#f59e0b;--accent2:#fbbf24;--accent-dim:rgba(245,158,11,0.12);--accent-border:rgba(245,158,11,0.28);--white:#ffffff;--text:#e2e8f0;--muted:#94a3b8;--card:rgba(255,255,255,0.04);--card-border:rgba(255,255,255,0.08)}
+html,body{height:100%;overflow:hidden;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 0.4s ease;z-index:100;box-shadow:0 0 12px rgba(245,158,11,0.5)}
+#counter{position:fixed;bottom:24px;right:32px;font-size:13px;font-weight:500;color:var(--muted);letter-spacing:0.05em;z-index:100}
+#nav-hints{position:fixed;bottom:24px;left:32px;font-size:12px;color:rgba(148,163,184,0.45);z-index:100;display:flex;gap:14px}
+#nav-hints kbd{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:2px 6px;font-family:inherit;font-size:11px}
+.nav-arrow{position:fixed;top:50%;transform:translateY(-50%);z-index:100;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:var(--muted);width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;transition:all 0.2s;user-select:none}
+.nav-arrow:hover{background:rgba(245,158,11,0.12);border-color:var(--accent);color:var(--accent)}
+#prev{left:16px}#next{right:16px}
+#slides{position:fixed;inset:0}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px 100px 80px;opacity:0;transition:opacity 0.45s ease;pointer-events:none;overflow:hidden}
+.slide.active{opacity:1;pointer-events:auto}
+.slide-inner{width:100%;max-width:960px;position:relative;z-index:1}
+.bg-glow{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+.bg-glow-1{width:600px;height:600px;top:-150px;right:-150px;background:radial-gradient(circle,rgba(245,158,11,0.05) 0%,transparent 70%)}
+.bg-glow-2{width:400px;height:400px;bottom:-100px;left:-100px;background:radial-gradient(circle,rgba(99,102,241,0.04) 0%,transparent 70%)}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;background:var(--accent-dim);border:1px solid var(--accent-border);padding:4px 12px;border-radius:20px}
+h1{font-size:clamp(44px,6.5vw,84px);font-weight:900;line-height:1.04;color:var(--white);letter-spacing:-0.02em;margin-bottom:14px}
+h2{font-size:clamp(26px,3.8vw,48px);font-weight:800;line-height:1.1;color:var(--white);letter-spacing:-0.02em;margin-bottom:10px}
+.subtitle{font-size:clamp(17px,2.2vw,24px);font-weight:400;color:var(--muted)}
+.lead{font-size:clamp(15px,1.8vw,19px);color:var(--text);line-height:1.65;margin-bottom:22px}
+.accent{color:var(--accent)}
+.divider{width:56px;height:3px;background:var(--accent);border-radius:2px;margin:14px 0}
+.bullets{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.bullets li{display:flex;align-items:flex-start;gap:13px;font-size:clamp(14px,1.6vw,17px);line-height:1.5;color:var(--text)}
+.bullets li::before{content:'';flex-shrink:0;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-top:8px}
+.bullets li strong{color:var(--white);font-weight:600}
+.bullets li em{color:var(--muted);font-style:normal}
+.card{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:20px}
+.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.card h4{font-size:15px;font-weight:700;color:var(--white);margin-bottom:7px}
+.card p{font-size:13px;color:var(--muted);line-height:1.5}
+.card .icon{font-size:24px;display:block;margin-bottom:10px}
+.path-vis{display:flex;align-items:center;gap:12px;margin:18px 0;flex-wrap:wrap}
+.path-step{background:var(--card);border:1px solid var(--card-border);border-radius:8px;padding:10px 18px;font-size:15px;font-weight:600;color:var(--text)}
+.path-step.hi{border-color:var(--accent-border);background:var(--accent-dim);color:var(--accent)}
+.path-arrow{color:var(--accent);font-size:20px}
+.agent-loop{display:flex;align-items:center;justify-content:center;margin:22px 0;flex-wrap:wrap;gap:4px}
+.loop-step{display:flex;flex-direction:column;align-items:center;gap:7px}
+.loop-circle{width:66px;height:66px;border-radius:50%;background:var(--accent-dim);border:2px solid var(--accent-border);display:flex;align-items:center;justify-content:center;font-size:20px}
+.loop-label{font-size:10px;font-weight:700;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase}
+.loop-arrow{font-size:20px;color:var(--accent);margin:0 4px;margin-bottom:22px;opacity:0.5}
+.force-item{display:flex;gap:16px;align-items:flex-start;padding:16px 18px;background:var(--card);border:1px solid var(--card-border);border-radius:12px}
+.force-num{flex-shrink:0;width:30px;height:30px;border-radius:7px;background:var(--accent);color:#000;font-weight:900;font-size:15px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.force-item h4{font-size:15px;font-weight:700;color:var(--white);margin-bottom:3px}
+.force-item p{font-size:13px;color:var(--muted);line-height:1.45}
+.forces{display:flex;flex-direction:column;gap:11px;margin-top:20px}
+.sensor-chip{background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:20px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--accent);display:inline-block;margin:3px}
+.big-numbers{display:flex;gap:32px;margin-top:22px;flex-wrap:wrap}
+.big-num{font-size:clamp(32px,4.5vw,58px);font-weight:900;color:var(--accent);line-height:1}
+.big-num-label{font-size:12px;color:var(--muted);margin-top:4px}
+.price-flow{display:flex;align-items:center;gap:12px;margin:22px 0;flex-wrap:wrap}
+.price-box{background:var(--card);border:1px solid var(--card-border);border-radius:10px;padding:14px 20px;text-align:center}
+.price-box .amount{font-size:28px;font-weight:900;color:var(--white)}
+.price-box .lbl{font-size:12px;color:var(--muted);margin-top:2px}
+.price-box.barrier{border-color:rgba(239,68,68,0.3);background:rgba(239,68,68,0.06)}
+.price-box.barrier .amount{color:#f87171}
+.price-box.solution{border-color:var(--accent-border);background:var(--accent-dim)}
+.price-box.solution .amount{color:var(--accent)}
+.price-arrow{font-size:22px;color:var(--muted)}
+.product-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.product-card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:22px}
+.product-card.featured{border-color:var(--accent-border);background:rgba(245,158,11,0.06)}
+.product-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+.product-card h4{font-size:17px;font-weight:800;color:var(--white);margin-bottom:8px}
+.product-card p{font-size:13px;color:var(--muted);line-height:1.5}
+.product-price{display:inline-block;margin-top:10px;font-size:20px;font-weight:900;color:var(--accent)}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:18px}
+.detail-item{background:var(--card);border:1px solid var(--card-border);border-radius:10px;padding:15px}
+.detail-item h5{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:5px}
+.detail-item p{font-size:13px;color:var(--text);line-height:1.4}
+.grid-6{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.grid-item{background:var(--card);border:1px solid var(--card-border);border-radius:10px;padding:14px 16px}
+.grid-item-num{font-size:10px;font-weight:700;color:var(--accent);letter-spacing:0.1em;margin-bottom:4px}
+.grid-item h5{font-size:14px;font-weight:700;color:var(--white);margin-bottom:3px}
+.grid-item p{font-size:12px;color:var(--muted);line-height:1.4}
+.timeline{display:flex;flex-direction:column;gap:0;margin-top:20px}
+.tl-item{display:flex;gap:20px;padding:16px 0;border-bottom:1px solid var(--card-border)}
+.tl-item:first-child{padding-top:0}.tl-item:last-child{border-bottom:none}
+.tl-month{flex-shrink:0;width:84px;font-size:12px;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;padding-top:2px}
+.tl-content h5{font-size:15px;font-weight:700;color:var(--white);margin-bottom:3px}
+.tl-content p{font-size:13px;color:var(--muted);line-height:1.45}
+.de-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:20px}
+.de-stat-card{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:20px}
+.de-stat-num{font-size:40px;font-weight:900;color:var(--accent);line-height:1}
+.de-stat-label{font-size:13px;color:var(--muted);margin-top:5px}
+.rev-items{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.rev-item{display:flex;align-items:center;gap:16px;padding:13px 18px;background:var(--card);border:1px solid var(--card-border);border-radius:10px}
+.rev-icon{font-size:20px;flex-shrink:0}
+.rev-label{flex:1;font-size:15px;font-weight:600;color:var(--white)}
+.rev-range{font-size:14px;font-weight:800;color:var(--accent)}
+.urg-items{display:flex;flex-direction:column;gap:11px;margin-top:18px}
+.urg-item{display:flex;align-items:center;gap:16px;padding:12px 16px;background:var(--card);border:1px solid var(--card-border);border-radius:10px}
+.urg-icon{font-size:18px;flex-shrink:0}
+.urg-text{font-size:14px;color:var(--text)}
+.urg-text strong{color:var(--white)}
+.partner-cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.partner-col{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:20px}
+.partner-col h4{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.partner-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.partner-col ul li{font-size:14px;color:var(--text);display:flex;gap:9px}
+.partner-col ul li::before{content:'\2192';color:var(--accent);font-weight:700;flex-shrink:0}
+.heritage-row{display:flex;gap:0;margin-top:24px}
+.her-item{flex:1;padding:18px;border-top:3px solid var(--card-border)}
+.her-item.hl{border-color:var(--accent)}
+.her-year{font-size:26px;font-weight:900;color:var(--accent)}
+.her-label{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+.closing{margin-top:28px;padding-top:22px;border-top:1px solid var(--card-border);font-size:clamp(13px,1.6vw,16px);color:var(--muted)}
+.title-eyebrow{font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:14px;justify-content:center}
+.title-eyebrow::before,.title-eyebrow::after{content:'';flex:1;max-width:70px;height:1px;background:var(--accent-border)}
+.title-meta{display:flex;gap:40px;margin-top:32px;padding-top:24px;border-top:1px solid var(--card-border);justify-content:center}
+.meta-item{font-size:14px;color:var(--muted);text-align:center}
+.meta-item strong{display:block;color:var(--white);font-weight:600;font-size:16px;margin-bottom:2px}
+@media(max-width:768px){
+.slide{padding:48px 24px 72px}
+.cards-3,.product-cards,.detail-grid,.grid-6,.partner-cols,.de-stats{grid-template-columns:1fr}
+.heritage-row{flex-direction:column}
+.loop-arrow{display:none}
+#nav-hints{display:none}
+.title-meta{gap:18px;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="counter">1 / 16</div>
+<div id="nav-hints"><span><kbd>&larr;</kbd> <kbd>&rarr;</kbd> navigate</span><span><kbd>Space</kbd> advance</span></div>
+<div class="nav-arrow" id="prev" onclick="changeSlide(-1)">&#8249;</div>
+<div class="nav-arrow" id="next" onclick="changeSlide(1)">&#8250;</div>
+<div id="slides">
+
+<!-- SLIDE 1: TITLE -->
+<div class="slide active" id="slide-1">
+<div class="bg-glow bg-glow-1"></div><div class="bg-glow bg-glow-2"></div>
+<div class="slide-inner" style="text-align:center;max-width:820px;">
+  <div class="title-eyebrow">Lambert &times; Exodraft</div>
+  <h1 style="font-size:clamp(54px,7.5vw,96px);">The Agentic<br><span class="accent">Advantage</span></h1>
+  <p class="subtitle" style="font-size:clamp(20px,2.8vw,28px);margin-top:14px;">A new kind of thinking partnership for Exodraft</p>
+  <div class="title-meta">
+    <div class="meta-item"><strong>Henrik Lambert</strong>Innovation &amp; AI Strategy</div>
+    <div class="meta-item"><strong>March 2026</strong>Langeskov, Denmark</div>
+  </div>
+  <p style="margin-top:20px;font-size:13px;color:rgba(148,163,184,0.45);font-style:italic;">exodraft.com meets the next era of energy intelligence</p>
+</div>
+</div>
+
+<!-- SLIDE 2: WHO IS HENRIK -->
+<div class="slide" id="slide-2">
+<div class="bg-glow bg-glow-1"></div>
+<div class="slide-inner">
+  <div class="tag">About Henrik Lambert</div>
+  <h2>I connect dots that others miss</h2>
+  <div class="divider"></div>
+  <div class="path-vis">
+    <div class="path-step">Project Management</div>
+    <div class="path-arrow">&#8594;</div>
+    <div class="path-step">Product Management</div>
+    <div class="path-arrow">&#8594;</div>
+    <div class="path-step hi">Agentic AI Systems</div>
+  </div>
+  <p style="font-size:clamp(17px,2vw,22px);color:var(--white);font-weight:600;border-left:3px solid var(--accent);padding-left:20px;line-height:1.4;margin-bottom:22px;">
+    &ldquo;I don&rsquo;t advise on AI from the outside. I operate it. Every day.&rdquo;
+  </p>
+  <div class="card" style="background:rgba(245,158,11,0.06);border-color:var(--accent-border);">
+    <h4 style="color:var(--accent);font-size:13px;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">Proof of concept &mdash; this morning</h4>
+    <p style="font-size:16px;color:var(--text);line-height:1.65;">
+      This entire analysis &mdash; company research, market sizing, product white papers, competitive landscape &mdash; was built with AI in one morning.
+      That capability is exactly what I bring to the partnership.
+    </p>
+  </div>
+</div>
+</div>
+
+<!-- SLIDE 3: WHAT IS LAMBERT -->
+<div class="slide" id="slide-3">
+<div class="bg-glow bg-glow-1"></div>
+<div class="slide-inner">
+  <div class="tag">Lambert</div>
+  <h2>Not a consultancy.<br>A thinking partnership.</h2>
+  <div class="divider"></div>
+  <p class="lead">&ldquo;I work with established companies at the moment when AI can change their trajectory &mdash; not to replace what they&rsquo;ve built, but to accelerate it.&rdquo;</p>
+  <div class="cards-3">
+    <div class="card"><span class="icon">&#128269;</span><h4>Strategic Analysis Sprint</h4><p>Deep-dive on one specific opportunity. Research, synthesis, recommendation &mdash; fast.</p></div>
+    <div class="card"><span class="icon">&#128161;</span><h4>Innovation Workshop</h4><p>Half-day or full-day session. Agentic AI applied to your real business challenges.</p></div>
+    <div class="card" style="border-color:var(--accent-border);background:var(--accent-dim);"><span class="icon">&#128640;</span><h4>90-Day AI Implementation</h4><p>Working agents in production. Real outcomes. Internal capability transfer.</p></div>
+  </div>
+  <div class="closing"><span class="accent" style="font-size:20px;font-weight:800;">&ldquo;I ship. I don&rsquo;t just present.&rdquo;</span></div>
+</div>
+</div>
+
+<!-- SLIDE 4: 67 YEARS -->
+<div class="slide" id="slide-4">
+<div class="bg-glow bg-glow-1"></div>
+<div class="slide-inner">
+  <div class="tag">Exodraft A/S</div>
+  <h2>67 years of earned leadership</h2>
+  <div class="divider"></div>
+  <div class="heritage-row">
+    <div class="her-item hl"><div class="her-year">1957</div><div class="her-label">Kai Hermansen, Sor&oslash;. Hand drill. First chimney fan ever built.</div></div>
+    <div class="her-item hl"><div class="her-year">Exhausto</div><div class="her-label">Decades of engineering. Market leadership earned, not inherited.</div></div>
+    <div class="her-item hl"><div class="her-year">Today</div><div class="her-label">Exodraft Group: Fans &middot; Energy &middot; Climate. Own dev lab in Langeskov.</div></div>
+    <div class="her-item hl"><div class="her-year">2026</div><div class="her-label">The inflection point. The window. This conversation.</div></div>
+  </div>
+  <div class="big-numbers">
+    <div><div class="big-num">1.5M</div><div class="big-num-label">UK installations</div></div>
+    <div><div class="big-num">80%</div><div class="big-num-label">fewer particles</div></div>
+    <div><div class="big-num">15%</div><div class="big-num-label">more energy, same wood</div></div>
+    <div><div class="big-num">95%</div><div class="big-num-label">waste heat recoverable</div></div>
+  </div>
+  <div class="closing">&ldquo;Exodraft has built something real and durable. Global dealer network. Regulatory influence. Own dev lab. That&rsquo;s the foundation.&rdquo;</div>
+</div>
+</div>
+
+<!-- SLIDE 5: THREE FORCES -->
+<div class="slide" id="slide-5">
+<div class="bg-glow bg-glow-1"></div>
+<div class="slide-inner">
+  <div class="tag">The Landscape</div>
+  <h2>Three forces creating urgency</h2>
+  <div class="divider"></div>
+  <div class="forces">
+    <div class="force-item">
+      <div class="force-num">1</div>
+      <div><h4>AI can now DO things, not just answer questions</h4><p>Agentic AI monitors, decides, and acts autonomously &mdash; it can operate parts of your business while you sleep.</p></div>
+    </div>
+    <div class="force-item">
+      <div class="force-num">2</div>
+      <div><h4>Connected home expectations have permanently shifted</h4><p>In 2026 every appliance has an app and a data layer. A chimney fan without connectivity is increasingly a commodity.</p></div>
+    </div>
+    <div class="force-item">
+      <div class="force-num">3</div>
+      <div><h4>Chinese hardware players are 18 months away</h4><p>Competitive residential chimney fans at lower price points are coming. The window to define &ldquo;smart chimney&rdquo; is finite.</p></div>
+    </div>
+  </div>
+  <div class="closing">&ldquo;These forces don&rsquo;t threaten what you&rsquo;ve built &mdash; they create the window to extend it.&rdquo;</div>
+</div>
+</div>
+
+<!-- SLIDE 6: AGENTIC AI -->
+<div class="slide" id="slide-6">
+<div class="bg-glow bg-glow-1"></div>
+<div class="slide-inner">
+  <div class="tag">The Technology</div>
+  <h2>What is an agentic AI?</h2>
+  <div class="divider"></div>
+  <div class="agent-loop">
+    <div class="loop-step"><div class="loop-circle">&#128065;</div><div class="loop-label">Perceives</div></div>
+    <div class="loop-arrow">&#8594;</div>
+    <div class="loop-step"><div class="loop-circle">&#129504;</div><div class="loop-label">Reasons</div></div>
+    <div class="loop-arrow">&#8594;</div>
+    <div class="loop-step"><div class="loop-circle">&#9889;</div><div class="loop-label">Acts</div></div>
+    <div class="loop-arrow">&#8594;</div>
+    <div class="loop-step"><div class="loop-circle">&#127891;</div><div class="loop-label">Learns</div></div>
+    <div class="loop-arrow">&#8594;</div>
+    <div class="loop-step"><div class="loop-circle">&#128257;</div><div class="loop-label">Repeats</div></div>
+  </div>
+  <p style="font-size:clamp(16px,1.9vw,20px);color:var(--white);font-weight:600;text-align:center;margin-bottom:20px;">&ldquo;An AI agent doesn&rsquo;t just answer questions. It monitors. It decides. It acts.&rdquo;</p>
+  <ul class="bullets">
+    <li><strong>Regulatory agent:</strong> Monitors all European wood-burning regulations &mdash; flags changes before competitors react.</li>
+    <li><strong>Intelligence agent:</strong> Analyses 10,000 Trustpilot and Google reviews &mdash; delivers a weekly insight digest automatically.</li>
+    <li><strong>Outreach agent:</strong> Drafts outreach to 500 German chimney sweep associations &mdash; personalised, scheduled, tracked.</li>
+  </ul>
+</div>
+</div>
+
+<!-- SLIDE 7: HARDWARE PLATFORM -->
+<div class="slide" id="slide-7">
+<div class="bg-glow bg-glow-1"></div>
+<div class="slide-inner">
+  <div class="tag">The Platform Opportunity</div>
+  <h2>Your fans already measure things.<br>That data currently disappears.</h2>
+  <div class="divider"></div>
+  <div style="margin:18px 0;">
+    <span class="sensor-chip">&#127787; Draft Pressure</span>
+    <span class="sensor-chip">&#127777; Flue Temperature</span>
+    <span class="sensor-chip">&#9881; RPM</span>
+    <span class="sensor-chip">&#128200; Combustion Quality</span>
+    <span class="sensor-chip">&#8987; Run Time</span>
+  </div>
+  <p style="font-size:clamp(17px,2vw,22px);color:var(--white);font-weight:600;border-left:3px solid var(--accent);padding-left:20px;line-height:1.4;margin-bottom:22px;">
+    &ldquo;Each connected Exodraft unit is a sensor. At 50,000 units, it&rsquo;s the world&rsquo;s most detailed dataset on residential combustion.&rdquo;
+  </p>
+  <ul class="bullets">
+    <li><strong>Better products:</strong> Fleet learning improves the algorithm for every unit sold.</li>
+    <li><strong>New revenue:</strong> B2B data to municipalities, insurers, and stove manufacturers.</li>
+    <li><strong>Defensible moat:</strong> No competitor can replicate 5 years of real-world combustion data.</li>
+  </ul>
+</div>
+</div>
+
+<!-- SLIDE 8: INSTALLATION BARRIER -->
+<div class="slide" id="slide-8">
+<div class="bg-glow bg-glow-1"></div>
+<div class="slide-inner">
+  <div class="tag" style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);color:#f87171;">The Honest Slide</div>
+  <h2>There&rsquo;s a friction point costing<br>significant market share</h2>
+  <div class="divider"></div>
+  <div class="price-flow">
+    <div class="price-box"><div class="amount">&#8364;400</div><div class="lbl">Product cost</div></div>
+    <div class="price-arrow">&#8594;</div>
+    <div class="price-box barrier"><div class="amount">&#8364;1,200</div><div class="lbl">Installed cost<br><small>roofer + electrician</small></div></div>
+    <div class="price-arrow">&#8594;</div>
+    <div class="price-box" style="border-color:rgba(239,68,68,0.3);background:rgba(239,68,68,0.06);"><div class="amount" style="color:#f87171;">70%</div><div class="lbl">conversion loss</div></div>
+    <div class="price-arrow">&#8594;</div>
+    <div class="price-box solution"><div class="amount">&#8364;299</div><div class="lbl">Solar self-install<br><small>20 min, no trades</small></div></div>
+  </div>
+  <ul class="bullets">
+    <li><strong>The concept:</strong> Solar-powered, pole-mount, self-install in 20 minutes. Zero electrician.</li>
+    <li><strong>The question:</strong> What does your conversion rate look like if a homeowner can install themselves for &#8364;299?</li>
+    <li><em>This isn&rsquo;t a criticism. It&rsquo;s the biggest single commercial opportunity in your residential segment.</em></li>
+  </ul>
+</div>
+</div>
+
+<!-- SLIDE 9: THREE PRODUCT CONCEPTS -->
+<div class="slide" id="slide-9">
+<div class="bg-glow bg-glow-1"></div>
+<div class="slide-inner">
+  <div class="tag">Product Concepts</div>
+  <h2>Three concepts. One vision.</h2>
+  <div class="divider"></div>
+  <div class="product-cards">
+    <div class="product-card">
+      <div class="product-label">Concept 01</div>
+      <h4>Exodraft Solar</h4>
+      <p>Self-powered via solar + TEG. Zero electrician. Snap-mount. The installation barrier, solved.</p>
+      <div class="product-price">&#8364;299 self-install</div>
+    </div>
+    <div class="product-card featured">
+      <div class="product-label">Concept 02 &mdash; Lowest Risk</div>
+      <h4>Draftbooster+</h4>
+      <p>Smart evolution of your bestseller. Connectivity + AI coaching + solar option. Fastest to market.</p>
+      <div class="product-price">Hardware + subscription</div>
+    </div>
+    <div class="product-card">
+      <div class="product-label">Concept 03</div>
+      <h4>Exodraft Intelligence</h4>
+      <p>The platform layer. Connected fleet &rarr; AI coaching &rarr; B2B data revenue. The endgame.</p>
+      <div class="product-price">Platform play</div>
+    </div>
+  </div>
+  <div class="closing">Full white papers available &mdash; BOM, certifications, business case for each concept.</div>
+</div>
+</div>
+
+<!-- SLIDE 10: DRAFTBOOSTER+ DETAIL -->
+<div class="slide" id="slide-10">
+<div class="bg-glow bg-glow-1"></div>
+<div class="slide-inner">
+  <div class="tag">Concept 02 &mdash; Recommended First Move</div>
+  <h2>Draftbooster+</h2>
+  <p style="font-size:clamp(15px,1.8vw,19px);color:var(--muted);margin-bottom:6px;">Build on what exists. Lowest NRE. Fastest to market.</p>
+  <div class="divider"></div>
+  <div class="detail-grid">
+    <div class="detail-item">
+      <h5>Connectivity Upgrades</h5>
+      <p>ESP32 module, draft pressure sensor, Xzense integration, Matter protocol support, optional solar input.</p>
+    </div>
+    <div class="detail-item">
+      <h5>The AI Layer</h5>
+      <p>Pre-ignition prediction, real-time combustion coaching, predictive maintenance alerts via app.</p>
+    </div>
+    <div class="detail-item">
+      <h5>Revenue Model</h5>
+      <p>One-time hardware sale + optional Intelligence subscription at &#8364;5.49/month. Recurring revenue stream.</p>
+    </div>
+    <div class="detail-item">
+      <h5>Why This First</h5>
+      <p>Existing tooling. Existing supply chain. Existing Xzense platform. Risk-adjusted highest ROI of the three concepts.</p>
+    </div>
+  </div>
+  <div class="closing"><span class="accent" style="font-weight:700;">&ldquo;This is not a new product. It&rsquo;s your best-seller, made smart.&rdquo;</span></div>
+</div>
+</div>
+
+<!-- SLIDE 11: AI IN BUSINESS -->
+<div class="slide" id="slide-11">
+<div class="bg-glow bg-glow-1"></div>
+<div class="slide-inner">
+  <div class="tag">AI Beyond Products</div>
+  <h2>AI in Exodraft&rsquo;s business &mdash;<br>not just its products</h2>
+  <div class="divider"></div>
+  <div class="grid-6">
+    <div class="grid-item">
+      <div class="grid-item-num">01 &mdash; Regulatory</div>
+      <h5>Monitoring Agent</h5>
+      <p>Tracks EU/UK/DE rule changes automatically. Flags before competitors react.</p>
+    </div>
+    <div class="grid-item">
+      <div class="grid-item-num">02 &mdash; Intelligence</div>
+      <h5>Competitive Agent</h5>
+      <p>Monitors Enervex, Amazon listings, new entrants. Weekly digest delivered.</p>
+    </div>
+    <div class="grid-item">
+      <div class="grid-item-num">03 &mdash; Content</div>
+      <h5>SEO Engine</h5>
+      <p>Scales the Exodraft knowledge hub. Automated content in 5 languages.</p>
+    </div>
+    <div class="grid-item">
+      <div class="grid-item-num">04 &mdash; Growth</div>
+      <h5>Heat Recovery Lead Gen</h5>
+      <p>Identifies industrial prospects in Germany. Warm outreach, no cold calls.</p>
+    </div>
+    <div class="grid-item">
+      <div class="grid-item-num">05 &mdash; Network</div>
+      <h5>Installer Recruitment</h5>
+      <p>Maps chimney sweep associations across Europe. Automated first contact.</p>
+    </div>
+    <div class="grid-item">
+      <div class="grid-item-num">06 &mdash; Funding</div>
+      <h5>Grant Identification</h5>
+      <p>EU heat recovery subsidies. Massive in current climate. Agent finds and tracks them.</p>
+    </div>
+  </div>
+  <div class="closing">&ldquo;These aren&rsquo;t future possibilities. These are deployable in 90 days.&rdquo;</div>
+</div>
+</div>
+
+<!-- SLIDE 12: 90-DAY SPRINT -->
+<div class="slide" id="slide-12">
+<div class="bg-glow bg-glow-1"></div>
+<div class="slide-inner">
+  <div class="tag">The Engagement</div>
+  <h2>What a 90-day sprint looks like</h2>
+  <div class="divider"></div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-month">Month 1</div>
+      <div class="tl-content">
+        <h5>Map &amp; Deploy</h5>
+        <p>Map highest-leverage AI use cases with Exodraft leadership. Deploy 2 business agents. Define Draftbooster+ connectivity spec.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-month">Month 2</div>
+      <div class="tl-content">
+        <h5>Build &amp; Measure</h5>
+        <p>Draftbooster+ connectivity spec finalized. 1 agent running in production. First real data from the field.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-month">Month 3</div>
+      <div class="tl-content">
+        <h5>Pilot &amp; Iterate</h5>
+        <p>Pilot 50 connected units with installer partners. Measure conversion, engagement, support load. Iterate.</p>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:20px;padding:16px 20px;background:var(--accent-dim);border:1px solid var(--accent-border);border-radius:10px;">
+    <p style="font-size:14px;color:var(--text);line-height:1.5;"><strong style="color:var(--white);">Deliverables:</strong> Working agents &middot; Technical spec &middot; Internal capability transfer &middot; Clear next sprint roadmap</p>
+  </div>
+  <div class="closing"><span class="accent" style="font-weight:700;">&ldquo;At the end of 90 days, you have evidence &mdash; not a deck.&rdquo;</span></div>
+</div>
+</div>
+
+<div class="slide" id="slide-13">
+  <div class="slide-inner">
+    <div class="slide-label">MARKET OPPORTUNITY</div>
+    <h2>Germany is the<br><span class="accent">prize</span></h2>
+    <div class="grid-2" style="margin-top:24px;">
+      <div class="card">
+        <div class="big-num">11M</div>
+        <div class="big-label">wood-burning installations</div>
+        <p style="font-size:13px;color:var(--muted);margin-top:8px;">Largest market in Europe — and the most under-served by connected products</p>
+      </div>
+      <div class="card">
+        <div class="big-num" style="font-size:32px;">Strictest</div>
+        <div class="big-label">clean air laws in Europe</div>
+        <p style="font-size:13px;color:var(--muted);margin-top:8px;">BImSchV forces upgrades. Exodraft is the natural answer — if positioned correctly</p>
+      </div>
+    </div>
+    <ul class="bullets" style="margin-top:20px;">
+      <li>No dominant connected chimney fan player — the category is unclaimed</li>
+      <li>"Made in Denmark" = engineering credibility in the German market</li>
+      <li>AI-led entry: German content targeting regulation searches, installer network mapping — <strong style="color:var(--accent);">without a local sales team on day one</strong></li>
+    </ul>
+    <div class="closing"><span class="accent">"Denmark validates the model. Germany scales it."</span></div>
+  </div>
+</div>
+
+<div class="slide" id="slide-14">
+  <div class="slide-inner">
+    <div class="slide-label">THE PLATFORM ENDGAME</div>
+    <h2>The data layer is worth<br>more than the <span class="accent">hardware</span></h2>
+    <p style="color:var(--muted);margin:12px 0 20px;">At 50,000 connected units, Exodraft operates the most detailed real-time combustion dataset in Europe.</p>
+    <div class="grid-3" style="margin-bottom:20px;">
+      <div class="card">
+        <div style="font-size:22px;margin-bottom:8px;">🏛️</div>
+        <strong style="color:var(--white);">Municipalities</strong>
+        <p style="font-size:13px;color:var(--muted);margin-top:6px;">Air quality monitoring at street level. €5,000–20,000/city/year.</p>
+      </div>
+      <div class="card">
+        <div style="font-size:22px;margin-bottom:8px;">🛡️</div>
+        <strong style="color:var(--white);">Insurers</strong>
+        <p style="font-size:13px;color:var(--muted);margin-top:6px;">Chimney fire risk scoring per property. €100,000–500,000/year.</p>
+      </div>
+      <div class="card">
+        <div style="font-size:22px;margin-bottom:8px;">🔥</div>
+        <strong style="color:var(--white);">Stove Manufacturers</strong>
+        <p style="font-size:13px;color:var(--muted);margin-top:6px;">Real-world combustion performance data. €30,000–100,000/year.</p>
+      </div>
+    </div>
+    <div class="closing"><span class="accent">"You're not selling a fan. You're selling certainty — and certainty has many buyers."</span></div>
+  </div>
+</div>
+
+<div class="slide" id="slide-15">
+  <div class="slide-inner">
+    <div class="slide-label">WHY NOW</div>
+    <h2>The window is<br><span class="accent">open</span></h2>
+    <ul class="bullets">
+      <li><strong style="color:var(--white);">Connected expectations are here:</strong> Homeowners expect apps and data from a €30 thermostat. A €400 chimney fan without connectivity feels like the past.</li>
+      <li><strong style="color:var(--white);">Regulatory tailwinds create forced adoption:</strong> EU directives and national clean air laws are driving upgrade cycles — now, not in 5 years.</li>
+      <li><strong style="color:var(--white);">Competition is still analog:</strong> No chimney fan company has launched a connected data platform. The category definition is unclaimed.</li>
+      <li><strong style="color:var(--white);">AI capability costs collapsed:</strong> Agents that cost €50,000 to build two years ago cost €5,000 today.</li>
+    </ul>
+    <div style="margin-top:24px;padding:16px 20px;background:rgba(245,158,11,0.08);border-left:3px solid var(--accent);border-radius:6px;">
+      <p style="font-size:15px;line-height:1.6;color:var(--text);">"Companies that moved decisively on mobile in 2008 defined their categories for the next decade. <strong style="color:var(--accent);">This moment is the same.</strong> The window to be the smart chimney company is open for approximately 18 months."</p>
+    </div>
+  </div>
+</div>
+
+<div class="slide" id="slide-16">
+  <div class="slide-inner" style="display:flex;flex-direction:column;justify-content:center;text-align:center;">
+    <div class="slide-label">THE PROPOSAL</div>
+    <h2 style="font-size:clamp(28px,5vw,52px);margin-bottom:16px;">A thinking partnership.<br>Not a project.</h2>
+    <p style="color:var(--muted);font-size:16px;max-width:600px;margin:0 auto 32px;">Henrik brings agentic AI tools, product architecture thinking, and implementation capacity. Exodraft brings 67 years of domain knowledge, a development laboratory, an installer network, and a brand that homeowners trust.</p>
+    <div class="grid-2" style="max-width:640px;margin:0 auto 32px;text-align:left;">
+      <div class="card">
+        <strong style="color:var(--white);display:block;margin-bottom:8px;">Henrik brings</strong>
+        <ul style="list-style:none;padding:0;margin:0;font-size:13px;color:var(--muted);line-height:2;">
+          <li>⚡ Agentic AI systems</li>
+          <li>⚡ Product architecture</li>
+          <li>⚡ European market thinking</li>
+          <li>⚡ He ships — not just presents</li>
+        </ul>
+      </div>
+      <div class="card">
+        <strong style="color:var(--white);display:block;margin-bottom:8px;">Exodraft brings</strong>
+        <ul style="list-style:none;padding:0;margin:0;font-size:13px;color:var(--muted);line-height:2;">
+          <li>🔥 67 years of domain depth</li>
+          <li>🔥 Development laboratory</li>
+          <li>🔥 Installer network</li>
+          <li>🔥 Brand trust across Europe</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-bottom:32px;">
+      <p style="font-size:14px;color:var(--muted);">henrik@lambert.dk &nbsp;·&nbsp; slambert.com &nbsp;·&nbsp; @henrikslambert</p>
+    </div>
+    <div class="closing" style="margin-top:0;">
+      <span class="accent" style="font-size:clamp(16px,2.5vw,22px);font-weight:700;">"Let's define what <em>Your Energy. Optimized.</em> means in the age of AI."</span>
+    </div>
+  </div>
+</div>
+
+</div><!-- /.slides-container -->
+
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+<div class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">16</span></div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const total = slides.length;
+let current = 0;
+
+document.getElementById('totalSlides').textContent = total;
+
+function goTo(n) {
+  slides[current].classList.remove('active');
+  current = Math.max(0, Math.min(n, total - 1));
+  slides[current].classList.add('active');
+  document.getElementById('currentSlide').textContent = current + 1;
+  document.getElementById('progressFill').style.width = ((current + 1) / total * 100) + '%';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); goTo(current + 1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(current - 1); }
+});
+
+goTo(0);
+</script>
+</body>
+</html>
